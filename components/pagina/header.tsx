@@ -4,24 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 // importação de componentes:
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Search } from "lucide-react";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
+// importação de ícones:
+import { Search } from "lucide-react";
 
 // importação de arquivos:
 import Cobre from "@/public/cobre.svg";
@@ -29,24 +18,16 @@ import GitHub from "@/public/github.svg"
 import Discord from "@/public/discord.svg"
 
 //importação de variáveis:
-import {
-  conceitos,
-  livros,
-  mundos,
-  outros,
-  personagens,
-  ItemCat,
-  ItemCatO,
-} from "@/lib/constants/categorias";
-import { universos, ItemUni } from "@/lib/constants/universos";
-
-const triger_props = "bg-transparent p-2 aria-expanded:text-destaque";
-const aItem_props = "w-[240px]";
-const a_props = "flex items-center"
-const icons_size = 18
-const tooltip_props = "text-white bg-[#0a0a0a] border-[#262626] border"
+import { conceitos, livros, mundos, outros, personagens, ItemCat, ItemCatO } from "@/components/pagina/header_items/categorias";
+import { universos, ItemUni } from "@/components/pagina/header_items/universos";
 
 function Header() {
+  const triger_props = "bg-transparent p-2 aria-expanded:text-destaque";
+  const aItem_props = "w-[240px]";
+  const a_props = "flex items-center"
+  const icons_size = 18
+  const tooltip_props = "text-white bg-[#0a0a0a] border-[#262626] border"
+
   return (
     <>
       <header className="sticky top-0 z-50 w-full h-14 border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:border-border flex items-center justify-center">
