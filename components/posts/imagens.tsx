@@ -11,31 +11,16 @@ import { Download } from "lucide-react";
 interface Dados_das_Imagens {
   fonte: string | StaticImageData,
   alt: string,
-  link_do_autor: string,
-  autor: string,
-  descricao: string,
+  link_do_autor?: string,
+  autor?: string,
+  descricao?: string,
 }
 
 const Imagem: React.FC<Dados_das_Imagens> = ({fonte, alt, link_do_autor, autor, descricao}) => {
   const url: string | StaticImageData = fonte;
   
   const baixar_imagem = async () => {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error("Erro ao buscar a imagem.");
-      }
-
-      const blob = await response.blob();
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = `${descricao.toLowerCase().replace(/\s+/g, '-')}.jpeg`; 
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (error) {
-      console.error("Erro ao baixar a imagem:", error);
-    }
+    console.log(url)
   };
 
   const BotaoBaixar = () => {
