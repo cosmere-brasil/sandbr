@@ -13,9 +13,6 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbS
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
-// importação de variáveis:
-import { estilos } from "@/lib/constants/estilos_de_posts";
-
 // importação de arquivos:
 import BS from "@/public/imgs/brandon-sanderson.jpg"
 
@@ -23,6 +20,14 @@ export default function Pagina() {
   const tooltip_props = "text-white bg-[#0a0a0a] border-[#262626] border";
   const idade = ()=> differenceInYears(new Date(), new Date('1975-12-19'))
 
+  const estilos = {
+    caminho: "sticky top-14 h-8 bg-background flex items-center z-50",
+    main: "w-[80%] flex flex-col gap-3",
+    article: "flex",
+    post: "w-[70%] px-5",
+    complementar: "w-[30%] flex flex-col items-center"
+  }
+  
   return (
     <section className="max-w-screen flex justify-center mx-5 my-5">
       <Indice>
