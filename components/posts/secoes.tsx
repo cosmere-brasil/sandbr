@@ -15,17 +15,17 @@ interface Topicos {
 // componentes:
 const Indice: React.FC<Indices> = ({children}) => {
     return (
-        <section className="w-[20%] px-3 text-sm">
+        <aside className="w-[15%] pr-3 text-sm h-screen sticky top-[76px]">
             <h2 className="text-lg">Conteúdo da página</h2>
             {children}
-        </section>
+        </aside>
     );
 }
 
 const Topico: React.FC<Topicos> = ({id, titulo, children}) => {
     return (
         <section className="flex flex-col gap-3 text-justify hyphens-auto mb-5">
-            <h2 className="text-xl font-medium" id={id}>{titulo}</h2>
+            <h2 className="text-xl font-medium scroll-mt-[76px]" id={id}>{titulo}</h2>
             {children}
         </section>
     )
@@ -34,7 +34,7 @@ const Topico: React.FC<Topicos> = ({id, titulo, children}) => {
 const Subtopico: React.FC<Topicos> = ({id, titulo, children}) => {
     return (
         <div className="flex flex-col gap-3 mt-5 text-justify hyphens-auto">
-            <h3 className="text-lg font-medium" id={id}>{titulo}</h3>
+            <h3 className="text-lg font-medium scroll-mt-[76px]" id={id}>{titulo}</h3>
             {children}
         </div>
     )

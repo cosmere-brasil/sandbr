@@ -74,7 +74,11 @@ const Listar: React.FC<Listagem> = ({qual}) => {
 
 // Referenciar é usado para criar uma âncora que leva à área de referências
 const Referenciar: React.FC<AncReferencias> = ({qual}) => {
-    return <Link href={`#${qual}`} className={estilo_de_link} id={`${qual}a`}>{`[${qual}]`}</Link>
+    return (
+      <sup>
+        <Link href={`#${qual}`} className={estilo_de_link} id={`${qual}a`}>{`[${qual}]`}</Link>
+      </sup>
+    );
 }
 
 // CriarReferencia usado para criar uma referência e uma âncora que leva de volta ao conteúdo ao qual a refêrencia se relaciona.

@@ -165,7 +165,7 @@ function Header() {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
-                  <a href="https://github.com/cosmere-brasil/cosmere-brasil" target="_blank" rel="noopener noreferrer" className={a_props}>
+                  <a href="https://github.com/sand-br/sandbr" target="_blank" rel="noopener noreferrer" className={a_props}>
                     <Image src={GitHub} height={icons_size} width={icons_size} alt="GitHub"/>
                   </a>
                 </TooltipTrigger>

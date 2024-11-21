@@ -4,36 +4,46 @@ import Link from "next/link";
 // importação de componentes meus:
 import { Citar, Mencionar } from "@/components/posts/citacoes";
 import { Imagem } from "@/components/posts/imagens";
-import { Ancorar, CriarReferencia, Discorrer, Enlaçar, Listar, Referenciar } from "@/components/posts/ligacoes"
+import { CriarReferencia, Discorrer, Enlaçar, Listar } from "@/components/posts/ligacoes"
 import { Indice, Subtopico, Topico } from "@/components/posts/secoes";
 import { Significado } from "@/components/posts/significado";
+import { Item, Lista, SubItem } from "@/components/posts/indice";
 
 // importação de componentes da shadcn:
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 //constantes de estilo:
 const tooltip_props = "text-white bg-[#0a0a0a] border-[#262626] border";
+const id_props = "scroll-mt-[76px]"
 
 export default function Cosmere() {
   return (
-    <section className="max-w-screen h-auto flex justify-center mx-2 my-5">
+    <section className="max-w-screen flex justify-center mx-5 my-5">
       <Indice>
-        <p>Introdução</p>
-        <Accordion type="multiple" className="flex flex-wrap w-[500px] m-3 gap-3">
-          <AccordionItem value="reinos">
-            <AccordionTrigger>Reinos do Cosmere</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-2">
-              <Ancorar o_que="#reino_fisico" titulo="Reino Físico"/>
-              <Ancorar o_que="/cosmere/#reino_cognitivo" titulo="Reino Cognitivo"/>
-              <Ancorar o_que="/cosmere/#reino_espiritual" titulo="Reino Espiritual"/>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        <Lista>
+          <Item link="introducao" item="Introdução"></Item>
+          <Item link="reinos" item="Reinos do Cosmere">
+            <SubItem link="reino_fisico" item="Reino Físico"/>
+            <SubItem link="reino_cognitivo" item="Reino Cognitivo"/>
+            <Item link="reino_espiritual" item="Reino Espiritual">
+              <SubItem link="intencao" item="Intenção"></SubItem>
+              <SubItem link="identidade" item="Identidade"></SubItem>
+              <SubItem link="conexao" item="Conexão"></SubItem>
+              <SubItem link="sorte" item="Sorte"></SubItem>
+            </Item>
+          </Item>
+
+          <Item link="investidura" item="Investidura">
+            <SubItem link="natureza_e_aparencia" item="Natureza e aparência"></SubItem>
+            <SubItem link="origem_e_ruptura" item="Origem e ruptura"></SubItem>
+            <SubItem link="lascas" item="Lascas"></SubItem>
+            <SubItem link="interacao_e_corrupcao" item="Interação e corrupção"></SubItem>
+          </Item>
+        </Lista>
       </Indice>
 
-      <main className="w-[55%] px-5 flex flex-col gap-3">
+      <main className="w-[60%] px-5 flex flex-col gap-3 top-[76px]">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -69,7 +79,7 @@ export default function Cosmere() {
           </Citar>
 
           <p>
-            O Cosmere é um universo fictício compartilhado, criado por <Enlaçar destino="/brandon-sanderson" texto="Brandon Sanderson"/>, que serve como cenário para muitas de suas obras literárias. As histórias ambientadas no Cosmere estão interligadas por uma cosmologia comum e por regras consistentes que governam os sistemas de magia. Além disso, certos personagens e elementos narrativos
+            O Cosmere é um universo fictício compartilhado, criado por <Enlaçar destino="/brandon-sanderson" texto="Brandon Sanderson"/>, que serve como cenário para muitas de suas obras literárias. As histórias ambientadas no Cosmere estão interligadas por uma <Significado palavra="cosmologia" significado="Isto é, por uma mesma origem, estrutura e evolução do universo."/> comum e por regras consistentes que governam os sistemas de magia. Além disso, certos personagens e elementos narrativos
             transitam entre os diferentes mundos do cosmere ou aparecem em mais de um deles.
           </p>
 
@@ -121,90 +131,124 @@ export default function Cosmere() {
             </li>
           </ul>
 
-          <p>A <Significado palavra="cosmogonia" significado="Isto é, o mito da criação do cosmos."/> do Cosmere gira em torno de <Enlaçar destino="/cosmere/adonalsium" texto="Adonalsium"/> (uma força ou ser comparável a um deus primordial), que foi quebrado em dezesseis pedaços chamados <Enlaçar destino="/cosmere/conceitos/fractais-de-adonalsium" texto="Fractais"/><Referenciar qual={3}/> durante o evento conhecido como a <Enlaçar destino="/cosmere/eventos/ruptura-de-adonalsium" texto="Ruptura de Adonalsium"/>.</p>
+          <p>A <Significado palavra="cosmogonia" significado="Isto é, a teoria sobre a origem e evolução do universo."/> do Cosmere começa com <Enlaçar destino="/cosmere/adonalsium" texto="Adonalsium"/>, descrito como uma força ou entidade primordial que pode ser comparada a um “deus original”. Sua verdadeira natureza é envolta em mistério; ainda não se sabe ao certo se Adonalsium era uma consciência, uma energia divina ou algo completamente diferente.</p>
+          
+          <p>Em um evento conhecido como a <Enlaçar destino="/cosmere/eventos/ruptura-de-adonalsium" texto="Ruptura de Adonalsium"/>, essa entidade foi despedaçada em dezesseis partes, chamadas de <Enlaçar destino="/cosmere/conceitos/fractais-de-adonalsium" texto="Fractais"/>. cada fractal representa um aspecto específico do que era Adonalsium, e carregam um enorme poder.</p>
 
-          <p>Os Fractários (isto é, os portadores do Fractais de Adonalsium) tornaram-se uma espécie de “deuses menores”, e os diferentes tipos de magia dentro dos mundos do Cosmere são derivados dos poderes deles.</p>
+          <p>Após a Ruptura, os Fractais se ligaram a indivíduos que assumiram esses fragmentos de poder, transformando-se em uma espécie de “deuses menores” no Cosmere</p>
+        
+          <p>Esses novos portadores do poder de Adonalsium eventualmente deixaram seu planeta natal e migraram para diferentes mundos dentro do Cosmere. Em cada planeta, os Fractais interagiram com as características únicas do local, dando origem a formas distintas de magia. Essa interação entre o poder dos Fractais e os ambientes moldou a realidade de cada mundo e influenciou profundamente a vida e a cultura de seus habitantes.</p>
         </Topico>
         
         <Topico id="reinos" titulo="Reinos do Cosmere">
-          <p>No Cosmere, tudo existe em três reinos que, segundo Sanderson,  existem desde o início do Cosmere: o <Enlaçar destino="/cosmere/reinos/reino-fisico" texto="Reino Físico"/>, o <Enlaçar destino="/cosmere/reinos/reino-cognitivo" texto="Reino Cognitivo"/> e o <Enlaçar destino="/cosmere/reinos/reino-espiritual" texto="Reino Espiritual"/>.</p>
-            
-          <p>Sabe-se que, quando alguém do Cosmere morre, uma <Enlaçar destino="/cosmere/conceitos/sombra-cognitiva" texto="Sombra Cognitiva"/> se forma no Reino Cognitivo. Para a maioria das pessoas, essa Sombra Cognitiva passa rapidamente para o <Enlaçar destino="/cosmere/lugares/alem" texto="Além"/> e sua <Enlaçar destino="/cosmere/conceitos/investidura" texto="Investidura"/> retorna ao Reino Espiritual. Todavia, quanto maior a quantidade de Investidura que alguém possuía em vida, mais tempo ele pode permanecer no Reino Cognitivo antes de ser atraído para o Além. Não obstante, os <Enlaçar destino="/cosmere/conceitos/fractario" texto="Fractários"/> (isto é, aqueles que já tiveram uma parte do poder de um <Enlaçar destino="/cosmere/conceitos/fractais-de-adonalsium" texto="Fractal"/> consigo) podem resistir à atração do Além indefinidamente, podendo escolher ir ou não para o Além.</p>
+          <p>No Cosmere, toda existência é dividida em três reinos fundamentais que coexistem e interagem entre si: o <Enlaçar destino="/cosmere/reinos/reino-fisico" texto="Reino Físico"/>, o <Enlaçar destino="/cosmere/reinos/reino-cognitivo" texto="Reino Cognitivo"/> e o <Enlaçar destino="/cosmere/reinos/reino-espiritual" texto="Reino Espiritual"/>. Segundo Sanderson, esses reinos foram estabelecidos desde o início do universo e são a base para a compreensão da realidade e da magia nos mundos do Cosmere.</p>
 
-          <p>E enquanto a passagem para o Além não ocorre, é possível que um morto seja <em>ressuscitado</em> por meio da cura da Investidura,  ou ser infundida com Investidura suficiente por meio do poder de um Fractal para se tornar uma Sombra Cognitiva duradoura. Entretanto, aqueles que são mortos pela <Enlaçar destino="/cosmere/objetos/espadas-fractais" texto="espada fractal"/> <Enlaçar destino="/cosmere/objetos/sangue-noturno" texto="Sangue Noturno"/>, por meio do uso de <Enlaçar destino="/cosmere/conceitos/anti-investidura" texto="Anti-Investidura"/> e os consumidos pelo <Enlaçar destino="/cosmere/seres/esprenos" texto="espreno"/> <Enlaçar destino="/cosmere/seres/yelig-nar" texto="Yelig-nar"/> não podem ser ressuscitados, pois nada resta de suas almas.</p>
+          <p>O Reino Físico é o que é percebido como o mundo material, onde os eventos tangíveis acontecem. o Reino Cognitivo reflete pensamentos, ideias e percepções, funcionando quase como um espelho do mundo físico, mas moldado pelas crenças e consciências. Já o Reino Espiritual contém as essências e ideais perfeitos de tudo, servindo como uma matriz que define o que cada coisa ou pessoa é em sua forma mais pura.</p>
 
-          <p>A cura mágica (ou a restauração de corpos, como feita por <Enlaçar destino="/cosmere/personagens/harmonia" texto="Harmonia"/>) funciona usando a Investidura para fazer com que a condição física de uma pessoa no Reino Físico se aproxime mais da versão ideal que existe no Reino Espiritual. Entretanto, a versão ideal de uma pessoa é filtrada pela percepção que esta tem de si mesma que está projetada no Reino Cognitivo. Sendo assim, a cura está limitada pela forma como a pessoa se vê e, uma vez que ela aceite algo como parte de si mesma, não será possível corrigir isto através da cura, mesmo que em sua <em>versão ideal</em> essa “parte de si” não exista ou seja diferente da que é projetada no Reino Cognitivo.</p>
+          <p>A conexão entre os reinos se manifesta de forma mais evidente no ciclo da vida e da morte. No Cosmere, quando alguém morre, sua essência não desaparece imediatamente. Uma <Enlaçar destino="/cosmere/conceitos/sombra-cognitiva" texto="Sombra Cognitiva"/> surge no Reino Cognitivo, carregando a percepção e os traços dessa pessoa. Para a maioria dos indivíduos, essa sombra é efêmera e logo segue para o <Enlaçar destino="/cosmere/lugares/alem" texto="Além"/>, enquanto sua <Enlaçar destino="/cosmere/conceitos/investidura" texto="Investidura"/> (a energia espiritual que conecta todas as coisas no Cosmere) retorna ao Reino Espiritual.</p>
+
+          <p>Entretanto, há exceções. Pessoas com maior quantidade de Investidura em vida podem permanecer no Reino Cognitivo por mais tempo antes de serem atraídas para o Além. E ainda mais excepcionais são os Fractários — aqueles que carregaram parte do poder de um Fractal. Esses indivíduos têm uma ligação tão profunda com a Investidura que podem resistir indefinidamente ao chamado do Além, escolhendo se desejam ou não <em>atravessar</em></p>
+
+          <p>E enquanto a passagem para o Além não acontece, é possível reverter a morte em alguns casos. Por meio de magia, o corpo físico pode ser curado ou infundido com Investidura suficiente para restaurar a vida, ou então só para transformar o morto em uma Sombra Cognitiva duradoura. Contudo, certas mortes são irreversíveis.Aaqueles mortos pela <Enlaçar destino="/cosmere/objetos/espadas-fractais" texto="espada fractal"/> <Enlaçar destino="/cosmere/objetos/sangue-noturno" texto="Sangue Noturno"/>, pela <Enlaçar destino="/cosmere/conceitos/anti-investidura" texto="Anti-Investidura"/>, ou consumidos pelo <Enlaçar destino="/cosmere/seres/esprenos" texto="espreno"/> <Enlaçar destino="/cosmere/seres/yelig-nar" texto="Yelig-nar"/> têm suas almas completamente destruídas, impossibilitando qualquer retorno.</p>
+
+          <p>Ademais, como a cura mágica no Cosmere funciona conectando as partes de alguém que estão <em>dispersas</em> nos reinos; ela acaba sendo limitada pela percepção de si que foi deixada no <Enlaçar destino="/cosmere/reinos/reino-cognitivo" texto="Reino Cognitivo"/>. Isto é, a forma como a pessoa se percebe influencia diretamente o processo de cura. Se alguém aceita uma característica como parte de si mesmo (como uma cicatriz ou deficiência), essa percepção é projetada no Reino Cognitivo, impedindo a restauração total segundo a forma perfeita e ideal que existe no <Enlaçar destino="/cosmere/reinos/reino-espiritual" texto="Reino Espiritual"/>.</p>
           
           <Subtopico id="reino_fisico" titulo="Reino Físico">
             <Discorrer destino="/cosmere/reinos/reino-fisico/" assunto="o Reino Físico"></Discorrer>
-            <p>O Reino Físico do Cosmere é formado de partículas fundamentais conhecidas como <Enlaçar destino="/cosmere/materiais/axi" texto="axi"/> e segue as leis comuns da física, a não ser quando a influência e/ou interferência de algum dos outros Reinos as modifica.</p>
+            <p>O Reino Físico do Cosmere é formado de partículas fundamentais conhecidas como  e segue as leis comuns da física, a não ser quando a influência e/ou interferência de algum dos outros Reinos as modifica.</p>
 
-            <p>Atualmente, o Cosmere é um aglomerado estelar formado por algo entre 50 a 100 estrelas; com dezesseis sistemas planetários conhecidos onde se localizam um total de dezenove planetas notáveis, embora o Cosmere também abrigue outros objetos celestes comuns, incluindo planetas anões, luas, constelações etc.</p>
+            <p>O Reino Físico no Cosmere é o plano da existência que percebemos diretamente, formado por partículas fundamentais chamadas <Enlaçar destino="/cosmere/materiais/axi" texto="axi"/>. Essas partículas compõem toda a matéria e energia no Cosmere. O Reino Físico segue as leis comuns da física — exceto quando sofre influência ou interferência de um dos outros reinos (<Enlaçar destino="/cosmere/reinos/reino-cognitivo" texto="Cognitivo"/> ou <Enlaçar destino="/cosmere/reinos/reino-espiritual" texto="Espiritual"/>.), o que pode alterar sua dinâmica natural.</p>
 
-            <p>Sabe-se que já se tentou sair dos limites físicos do aglomerado Cosmere, mas o resultado da tentativa é desconhecido.</p>
+            <p>Pelo que sabemos atualmente, no Reino Físico, o Cosmere é um aglomerado estelar composto por aproximadamente 50 a 100 estrelas. Dentro dele, estão dezesseis sistemas planetários conhecidos, que abrigam um total de dezenove planetas notáveis, além de diversos outros objetos celestes, como planetas anões, luas, constelações etc.</p>
+
+            <p></p>
+
+            <p>Embora o Cosmere seja vasto, ele não é ilimitado. Sabe-se que houve tentativas de ultrapassar os limites físicos do aglomerado estelar, mas o resultado dessas empreitadas permanece um mistério.</p>
           </Subtopico>
 
           <Subtopico id="reino_cognitivo" titulo="Reino Cognitivo">
             <Discorrer destino="/cosmere/reinos/reino-cognitivo" assunto="o Reino Cognitivo"/>
+            <p>O Reino Cognitivo é, em essência, uma versão espelhada do Reino Físico, mas com diferenças marcantes. Ele é conhecido como o Reino do Pensamento, e é moldado diretamente pela percepção coletiva e as ideias predominantes dos habitantes de um mundo, influenciando sua aparência e estrutura ao espelhar o Reino Físico.</p>
+
+            <p>O Reino Cognitivo também é influciado por o quanto as pessoas de um mundo pensam em conceitos do Reino Físico. Por exemplo, no Reino Cognitivo, o espaço sideral é extremamente pequeno, já que as pessoas raramente pensam no vasto espaço entre os planetas.</p>
+
+            <p>Algumas entidades existem naturalmente no Reino Cognitivo ou são nativas dele, como os <Enlaçar destino="/cosmere/seres/esprenos" texto="esprenos"/>, que personificam pensamentos, emoções e características naturais, e as sombras cognitivas, que são remanescentes de seres que já viveram no Reino Físico.</p>
+
             <p>O Reino Cognitivo é quase como uma versão do Reino Físico com diferenças bem marcadas. Por definição, o Reino Cognitivo é o Reino do pensamento e, assim sendo, ele é significativamente afetado pela forma como as pessoas imaginam e percebem as ideias sobre seu mundo e o universo imediatamente a sua volta.</p>
 
             <p>Por exemplo, o espaço sideral é significativamente pequeno no Reino Cognitivo, porque as pessoas não passam muito tempo pensando no espaço entre os planetas.</p>
 
-            <p>Há também algumas entidades que são nativas do Reino Cognitivo ou que existem naturalmente nele, como é o caso dos <Enlaçar destino="/cosmere/seres/esprenos" texto="esprenos"/>, que personificam pensamentos, emoções e características naturais; e das Sombras Cognitivas.</p>
+            <p>Há também algumas entidades que são nativas do Reino Cognitivo ou que existem naturalmente nele, como é o caso dos <Enlaçar destino="/cosmere/seres/esprenos" texto="esprenos"/>, que personificam pensamentos, emoções e características naturais; e das <Enlaçar destino="/cosmere/conceitos/sombra-cognitiva" texto="Sombras Cognitivas"/>.</p>
 
-            <p>A aparência do Reino Cognitivo ao redor de um planeta tende a refletir as características marcantes desse planeta. Por exemplo, o Reino Cognitivo de <Enlaçar destino="/cosmere/mundos/scadrial" texto="Scadrial"/> (planeta de <Enlaçar destino="/livros/nascidos-da-bruma" texto="Nascidos da Bruma"/>) é composto de névoa, enquanto o de <Enlaçar destino="/cosmere/mundos/roshar" texto="Roshar"/> é composto de esferas.</p>
+            <p>A aparência do Reino Cognitivo ao redor de cada planeta tende a refletir suas características únicas. Por exemplo:</p>
 
-            <p>Além disto, a terra e a água são invertidas no Reino Cognitivo, isto é, o que é terra firme no Reino Físico se torna um meio líquido no Cognitivo, enquanto os corpos de água no Físico são sólidos no Cognitivo. Os seres físicos que entrem no Reino Cognitivo e tentem atravessar regiões não sólidas dele podem se afogar no que quer que componha o Reino Cognitivo local, embora as entidades cognitivas possam atravessar essas regiões com segurança.</p>
+            <ul className="list-disc list-inside">
+              <li>O Reino Cognitivo de <Enlaçar destino="/cosmere/mundos/scadrial" texto="Scadrial"/> (planeta de <Enlaçar destino="/livros/nascidos-da-bruma" texto="Nascidos da Bruma"/>) é composto por névoa/bruma.</li>
+              <li>Em <Enlaçar destino="/cosmere/mundos/roshar" texto="Roshar"/> (planeta de <Enlaçar destino="/livros/os-relatos-da-guerra-das-tempestades/" texto="Os relatos da Guerra das Tempestades"/>), ele se manifesta como esferas brilhantes.</li>
+            </ul>
+
+            <p>Outra peculiaridade do Reino Cognitivo é a inversão entre terra e água. No Reino Cognitivo, as terras firmes do Físico se tornam líquidos navegáveis, enquanto os corpos de água no Físico se tornam massas sólidas. Essa inversão cria um desafio para seres físicos que entram no Reino Cognitivo, pois podem se afogar nos líquidos que o compõem. Por outro lado, entidades cognitivas atravessam essas regiões sem dificuldades.</p>
           </Subtopico>
           
           <Subtopico id="reino_espiritual" titulo="Reino Espiritual">
             <Discorrer destino="/cosmere/reinos/reino-espiritual" assunto="o Reino Espiritual"/>
-            <p>O Reino Espiritual não é exatamente um lugar, ele existe além do espaço e do tempo. Brandon o descreve como um reino de conceitos, sendo os principais: <Enlaçar destino="/cosmere/conceitos/intencao" texto="Intenção"/>, <Enlaçar destino="/cosmere/conceitos/identidade" texto="Identidade"/>, <Enlaçar destino="/cosmere/conceitos/conexao" texto="Conexão"/> e <Enlaçar destino="/cosmere/conceitos/sorte" texto="Sorte"/>.</p>
 
-            <p>Tudo o que existe no Reino Espiritual está em sua forma ideal.</p>
+            <p>O Reino Espiritual, diferente dos outros dois reinos do Cosmere, não é exatamente um lugar físico ou tangível. Ele existe além do espaço e do tempo, transcendendo as limitações da realidade perceptível. Brandon Sanderson o descreve como um reino de conceitos e essências.</p>
+
+            <p>Os conceitos fundamentais do Reino Espiritual incluem:</p>
+            <ul className="list-decimal list-inside flex flex-col gap-3">
+              <li id="intencao" className={id_props}>
+                <Enlaçar destino="/cosmere/conceitos/intencao" texto="Intenção"/>:
+
+                <div className="flex flex-col gap-3 mt-3">
+                  <p>No Cosmere, a Intenção é uma propriedade espiritual que representa a vontade ou propósito essencial de uma pessoa ou entidade. Ela não é algo esporádico, acidental ou fortuito; se a Intenção é necessária para realizar algo, a pessoa que tenta fazê-lo deve não apenas executar a ação, mas também ter a intenção deliberada de realizá-la. Muitas magias dos mundos de Brandon Sanderson dependem dessa característica, exigindo que o usuário aja conscientemente com Intenção para ativar ou manipular a Investidura.</p>
+
+                  <p>Entidades de Investidura, como os <Enlaçar destino="/cosmere/seres/esprenos" texto="esprenos"/>, as <Enlaçar destino="/cosmere/conceitos/sombra-cognitiva" texto="Sombras Cognitivas"/> e até os Fractários, possuem uma Intenção intrínseca, que reflete o propósito fundamental da Investidura de que são compostos. Com o passar do tempo, essas entidades tendem a se alinhar tão fortemente à sua Intenção que se tornam incapazes de agir de forma contrária a ela.</p>
+
+                  <p>Um exemplo extremo é <Enlaçar destino="/cosmere/personagens/ati" texto="Ati"/>, o portador original do Fractal <Enlaçar destino="/cosmere/fractais/ruina" texto="Ruína"/>. Inicialmente, Ati era descrito como gentil e generoso, mas, ao longo do tempo, foi completamente consumido pela Intenção do Fractal Ruína. Essa transformação o levou a desejar a destruição total de <Enlaçar destino="/cosmere/mundos/scadrial" texto="Scadrial"/>, pois ele acreditava que a ruína era uma parte essencial do ciclo natural do Cosmere.</p>
+                </div>
+              </li>
+
+              <li id="identidade" className={id_props}><Enlaçar destino="/cosmere/conceitos/identidade" texto="Identidade"/>:
+              <div className="flex flex-col gap-3 mt-3">
+                <p>No Cosmere, a Identidade é uma propriedade espiritual que define o que uma pessoa ou objeto essencialmente é. Ela funciona como uma espécie de fechadura e chave nas interações com a Investidura, sendo fundamental para as <Enlaçar destino="/cosmere/objetos/mentes-de-metal" texto="Mentes de metal"/> da <Enlaçar destino="/cosmere/sistemas-de-magia/feruquemia" texto="Feruquemia"/>. Em condições normais, um feruquemista só pode acessar atributos armazenados por ele mesmo, já que a Identidade de quem armazenou deve corresponder à Identidade de quem tenta recuperar.</p>
+
+                <p>A Identidade é intrinsecamente conectada ao conceito de <Enlaçar destino="/cosmere/conceitos/teia-espiritual" texto="Teia Espiritual"/>, que pode ser vista como um <em>DNA espiritual</em>. Embora as Teias Espirituais ainda não tenham sido completamente explicadas, sabe-se que elas:</p>
+
+                <ul className="list-disc list-inside">
+                  <li>Contêm informações detalhadas sobre a Investidura associada a uma pessoa ou objeto.</li>
+                  <li>São, de certa forma, quantificáveis e podem ser lidas ou manipuladas por aqueles que possuem habilidades específicas para interagir com o Reino Espiritual.</li>
+                </ul>
+
+                <p>Além de definir quem ou o que algo é, a Identidade também desempenha um papel na Conexão, armazenando vínculos entre pessoas, objetos e até conceitos abstratos. Esses vínculos espirituais têm implicações tanto no funcionamento das magias no Cosmere quanto nas interações entre os Reinos.</p>
+              </div>
+              </li>
+
+              <li id="conexao" className={id_props}><Enlaçar destino="/cosmere/conceitos/conexao" texto="Conexão"/>
+                <div className="flex flex-col gap-3 mt-3">
+                  <p>A Conexão é uma propriedade espiritual que representa e armazena os vínculos espirituais entre diferentes entidades no Cosmere, como seres vivos, locais, itens e até conceitos abstratos. Esses vínculos transcendem o Reino Físico e têm implicações práticas e mágicas.</p>
+
+                  <p>Por exemplo, é possível estabelecer uma Conexão entre uma pessoa e uma região, permitindo que ela fale instantaneamente o idioma local, como se fosse um falante nativo. Essa aplicação é um dos exemplos mais conhecidos da manipulação de Conexões no Cosmere.</p>
+
+                  <p>A Conexão também desempenha um papel fundamental no funcionamento dos Fractais. Para que alguém assuma o poder de um Fractal após a morte de seu Portador, essa pessoa precisa estar Conectada ao Fractal de forma significativa.</p>
+
+                  <p>Assim como outras propriedades espirituais, a Conexão é quantificável e pode ser manipulada por meio de <Enlaçar destino="/cosmere/conceitos/artes-investidas" texto="Artes Investidas"/> ou outras formas de interação com a Investidura. Embora Sanderson tenha mencionado que a Conexão pode ser alterada artificialmente, o método exato para fazê-lo ainda não foi explicado.</p>
+                </div>
+              </li>
+
+              <li id="sorte" className={id_props}><Enlaçar destino="/cosmere/conceitos/sorte" texto="Sorte"/>
+                <div className="flex flex-col gap-3 mt-3">
+                  <p>No Cosmere, a Sorte é uma propriedade espiritual ligada à boa fortuna, à capacidade de prever ou visualizar eventos futuros e à percepção de possibilidades futuras. Essa propriedade é explorada de diversas formas nos mundos criados por Sanderson, especialmente através da manipulação da Investidura.</p>
+
+                  <p>Um exemplo icônico de Sorte em ação são as sombras de <Enlaçar destino="/cosmere/materiais/atium" texto="atium"/> em Nascidos da Bruma. Quando um usuário consome atium, ele pode prever o futuro imediato, visualizando as possíveis ações de seus oponentes em combate. Esse é um uso direto de Sorte para antecipar eventos de curto prazo.</p>
+
+                  <p>Embora o uso de Sorte para prever o futuro imediato seja relativamente eficiente, tentar visualizar eventos mais distantes ou em outros locais é significativamente mais complicado. Esse tipo de previsão frequentemente resulta em visões imprecisas ou subjetivas, limitadas pela complexidade do futuro e pelas inúmeras variáveis envolvidas.</p>
+                </div>
+              </li>
+            </ul>
+
+            <p>Além disso, no Reino Espiritual, tudo existe em sua forma ideal. Isso significa que qualquer coisa ou ser no Cosmere possui uma versão perfeita e completa representada neste reino, livre de imperfeições físicas ou distorções cognitivas. É essa versão ideal que muitas vezes serve como base para magias de cura e restauração nos mundos do Cosmere.</p>
           </Subtopico>
-        </Topico>
-
-        <Topico id="propriedades_espirituais" titulo="Propriedades espirituais">
-          <ul className="list-disc list-inside flex flex-col gap-5">
-            <li>Intenção.
-              <div className="flex flex-col gap-3 mt-3">
-                <p>É o propriedade Espiritual que representa a vontade e/ou o propósito de uma pessoa. A Intenção não é esporádica, acidental nem fortuita; e, se a Intenção é necessária para fazer algo, então a pessoa que está tentando fazê-lo deve não apenas fazê-lo, mas pretender fazê-lo. Muitas das magias dos mundos de Sanderson requerem que o usuário aja com Intenção para usá-las adequadamente.</p>
-
-                <p>As Entidades de Investidura, isto é, os esprenos, as Sombras Cognitivas e mesmo os Fractários; têm uma Intenção intrínseca que é o propósito último da Investidura da qual sua essência é constituída. E, por quanto mais tempo essas entidades existirem, mais firmemente presas à sua Intenção elas ficarão, ao ponto de se tornarem incapazes de agir modo contrário às suas Intenções. Como exemplo extremo disto, temos o Ati, o Portador original do Fractal Ruína, que era inicialmente descrito como “gentil e generoso”, mas que com o tempo foi consumido pela Intenção de seu Fractal ao ponto de querer a ruína completa de Scadrial, considerando-a necessária ao ciclo do Cosmere.</p>
-
-                <p>Junto com a Intenção, há o conceito derivado de Comando. Entretanto, os Comandos são mais limitados quando comparados as Intenções, e funcionam como focos da Intenção, a fins de fazer a Investidura responder adequadamente. Os Comandos costumam estar ligados diretamente a alguma das Artes Investidas ou a métodos de manipulação da Investidura mas, dentre eles, há também os Fractais do Alvorecer; que são quatro Comandos fundamentais que estiveram envolvidos na criação do Cosmere e na Quebra de Adonalsium.</p>
-              </div>
-            </li>
-
-            <li>Identidade
-              <div className="flex flex-col gap-3 mt-3">
-                <p>É a propriedade Espiritual que representa o que uma pessoa ou um objeto é. A Identidade também é a fechadura e a chave das Mentes de metal, e os Feruquemistas só podem - em circunstâncias normais - retirar atributos armazenados por alguém com uma identidade correspondente, isto é, apenas os atributos que uma mesma pessoa tenha armazenado.</p>
-
-                <p>Como a Identidade descreve quem é uma pessoa, ela está ligada ao conceito de Teia Espiritual, e pode ser comparada a uma espécie de DNA espiritual. As Teias Espirituais ainda não são foram completamente explicadas mas, de alguma forma, são quantificáveis, registram informações sobre a Investidura de uma pessoa, e podem ser lidas por entidades ou pessoas com as habilidades certas.</p>
-
-                <p>Além de conter informações sobre quem ou o que é uma pessoa ou um objeto, a Identidade também armazena a Conexão entre pessoas, objetos e até mesmo conceitos abstratos.</p>
-              </div>
-            </li>
-
-            <li>Conexão
-              <div className="flex flex-col gap-3 mt-3">
-                <p>É a propriedade espiritual que representa (e armazena) conexões e relacionamentos espirituais entre diferentes entidades: seres vivos, locais, itens etc. Por exemplo, é possível formar uma Conexão entre uma pessoa e uma região/localidade; o que permitirá, por exemplo, que alguém fale o idioma de um lugar novo instantaneamente.</p>
-
-                <p>E sabe-se que, para assumir o poder de um Fractal após a morte de um Portador, a pessoa deve estar Conectada a esse Fractal.</p>
-
-                <p>A Conexão, assim como as outras propriedades espirituais, é quantificável e pode afetar ou ser afetada por diferentes Artes Investidas, assim sendo possível alterar a Conexão por meios artificiais, mas não foi explicado ainda o como isso é feito.</p>
-              </div>
-            </li>
-
-            <li>Sorte
-              <div className="flex flex-col gap-3 mt-3">
-                <p>É a propriedade espiritual relacionada à boa fortuna, à visão do futuro ou a versões do futuro. As sombras de Atium em Nascidos da Bruma, usadas para prever o futuro imediato, são um tipo de uso de Sorte.</p>
-
-                <p>Além do uso com o futuro imediato, a Sorte pode ser usada para ver eventos em outros locais ou mesmo prever o futuro, embora isso seja geralmente muito difícil, e as previsões feitas através da Sorte sejam, provavelmente, imprecisas ou só questionáveis.</p>
-              </div>
-            </li>
-          </ul>
         </Topico>
 
         <Topico id="investidura" titulo="Investidura">
@@ -212,15 +256,27 @@ export default function Cosmere() {
             <Mencionar quem="VenDell"/> para <Mencionar quem="Waxillium"/>.
           </Citar>
 
-          <p>A Investidura, juntamente com a matéria e a energia (os conceito físicos, perceba, assim como no nosso mundo), é uma das três essências que compõem o Cosmere e podemos descrevê-la como um tipo de energia espiritual.</p>
+          <p>A Investidura é uma das três essências fundamentais que compõem o Cosmere, juntamente com a matéria e a energia. Ela pode ser descrita como uma energia espiritual que permeia e transcende os Reinos Físico, Cognitivo e Espiritual.</p>
 
-          <p>A Investidura existe principalmente no <Enlaçar destino="/cosmere/reinos/reino-espiritual" texto="Reino Espiritual"/>, mas transcende os Reinos. Ao aparecer no <Enlaçar destino="/cosmere/reinos/reino-fisico" texto="Reino Físico"/>, a Investidura geralmente aparecerá de forma “condensada” em um dos estados da matéria, isto é, aparecerá como sólido, líquido ou gás. Independente de em que reino ela apareça, a Investidura obedecerá às leis comuns de conservação de energia e termodinâmica.</p>
+          <Subtopico id="natureza_e_aparencia" titulo="Natureza e aparência">
+            <p>A Investidura existe principalmente no <Enlaçar destino="/cosmere/reinos/reino-espiritual" texto="Reino Espiritual"/>, mas pode se manifestar nos outros Reinos. Quando aparece no  <Enlaçar destino="/cosmere/reinos/reino-fisico" texto="Reino Físico"/>, ela geralmente se condensa em um dos estados da matéria: sólido, líquido ou gás. Ao interagir com o Físico, a Investidura obedece às leis de conservação de energia e termodinâmica, reforçando sua conexão com os conceitos físicos do Cosmere.</p>
+          </Subtopico>
 
-          <p>Toda a Investidura existente estava ligada diretamente a <Enlaçar destino="/cosmere/adonalsium" texto="Adonalsium"/> e, no advento da <Enlaçar destino="/cosmere/eventos/ruptura-de-adonalsium" texto="Ruptura"/>, toda a Investidura foi dividida igualmente entre os <Enlaçar destino="/cosmere/conceitos/fractais-de-adonalsium" texto="Fractais"/>. E assim, após a Ruptura, toda a Investidura se ligou a um dos Fractais; embora permaneça, de algum modo, ligada a Adonalsium. Segundo Sanderson, a Ruptura significou “tudo e nada ao mesmo tempo” para a Investidura, teorizasse de que isso se dá provavelmente pelo fato de que os Fractais são Adonalsium, de certa forma.</p>
+          <Subtopico id="origem_e_ruptura" titulo="Origem e ruptura">
+            <p>Toda a Investidura no Cosmere estava originalmente ligada diretamente a <Enlaçar destino="/cosmere/adonalsium" texto="Adonalsium"/>. Com a <Enlaçar destino="/cosmere/eventos/ruptura-de-adonalsium" texto="Ruptura"/>, ela foi dividida igualmente entre os <Enlaçar destino="/cosmere/conceitos/fractais-de-adonalsium" texto="Fractais"/>, os dezesseis fragmentos resultantes da quebra de Adonalsium. Apesar dessa divisão, a Investidura mantém um vínculo essencial com a essência de Adonalsium, pois os Fractais são, de certa forma, extensões dele.</p>
 
-          <p>Se deixada sozinha por um longo tempo, a Investidura se tornará autoconsciente, criando o que chamamos de <Enlaçar destino="/cosmere/conceitos/lasca" texto="Lasca"/>. Como exemplo desse processo, temos os <Enlaçar destino="/cosmere/seres/seons" texto="seons"/> em <Enlaçar destino="/livros/elantris" texto="Elantris"/> e os <Enlaçar destino="/cosmere/seres/esprenos" texto="esprenos"/> em <Enlaçar destino="/livros/os-relatos-da-guerra-das-tempestades/" texto="Os relatos da Guerra das Tempestades"/>.</p>
+            <p>Sanderson descreve a Ruptura como algo que “significou tudo e nada ao mesmo tempo” para a Investidura. Isso sugere que, embora a Investidura tenha sido fragmentada, sua essência ainda reflete a unidade original de Adonalsium.</p>
+          </Subtopico>
 
-          <p>A Investidura ligada a um fractal pode tentar cooptar corromper a Investidura ligada a outro, essas situações geralmente produzirá um efeito vermelho de magia, como exemplo há a névoa vermelha de <Enlaçar destino="/cosmere/personagens/trell" texto="Trell"/>, representação do fractal <Enlaçar destino="/cosmere/fractais/autonomia" texto="Autonomia"/>, tentando invadir <Enlaçar destino="/cosmere/mundos/scadrial" texto="Scadrial"/>; planeta que é protegido por <Enlaçar destino="/cosmere/personagens/harmonia" texto="Harmonia"/>, o portador dos fractais <Enlaçar destino="/cosmere/fractais/preservacao" texto="Preservação"/> e <Enlaçar destino="/cosmere/fractais/ruina" texto="Ruína"/>.</p>
+          <Subtopico id="lascas" titulo="Lascas">
+            <p>Se deixada sozinha por tempo suficiente, a Investidura pode se tornar autoconsciente, resultando na formação de entidades chamadas Lascas. Exemplos desse fenômeno incluem os <Enlaçar destino="/cosmere/seres/seons" texto="seons"/> de <Enlaçar destino="/livros/elantris" texto="Elantris"/> e os <Enlaçar destino="/cosmere/seres/esprenos" texto="esprenos"/> de <Enlaçar destino="/livros/os-relatos-da-guerra-das-tempestades/" texto="Os relatos da Guerra das Tempestades"/>.</p>
+          </Subtopico>
+
+          <Subtopico id="interacao_e_corrupcao" titulo="Interação e corrupção">
+            <p>A Investidura é, por natureza, conectada ao Fractal a que pertence. Contudo, ela pode tentar corromper ou cooptar a Investidura associada a outro Fractal. Essas interações frequentemente geram um efeito vermelho em manifestações mágicas.</p>
+
+            <p>Um exemplo disso é a névoa vermelha de <Enlaçar destino="/cosmere/personagens/trell" texto="Trell"/>, uma representação do Fractal <Enlaçar destino="/cosmere/fractais/autonomia" texto="Autonomia"/> tentando invadir Scadrial, planeta protegido por <Enlaçar destino="/cosmere/personagens/harmonia" texto="Harmonia"/>, o portador dos Fractais <Enlaçar destino="/cosmere/fractais/preservacao" texto="Preservação"/> e <Enlaçar destino="/cosmere/fractais/ruina" texto="Ruína"/>.</p>
+          </Subtopico>
         </Topico>
 
         <Topico id="referencias" titulo="Bibliografia">
