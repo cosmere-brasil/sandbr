@@ -5,9 +5,9 @@ import Link from "next/link";
 import { Citar, Mencionar } from "@/components/posts/citacoes";
 import { Imagem } from "@/components/posts/imagens";
 import { CriarReferencia, Discorrer, Enlaçar, Listar } from "@/components/posts/ligacoes"
-import { Indice, Subtopico, Topico } from "@/components/posts/secoes";
+import { Subtopico, Topico } from "@/components/posts/secoes";
 import { Significado } from "@/components/posts/significado";
-import { Item, Lista, SubItem } from "@/components/posts/indice";
+import { Indice, Item, Lista, SubItem } from "@/components/posts/indice";
 
 // importação de componentes da shadcn:
 import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
@@ -22,28 +22,75 @@ export default function Cosmere() {
     <section className="max-w-screen flex justify-center mx-5 my-5">
       <Indice>
         <Lista>
-          <Item link="introducao" item="Introdução"></Item>
-          <Item link="reinos" item="Reinos do Cosmere">
-            <SubItem link="reino_fisico" item="Reino Físico"/>
-            <SubItem link="reino_cognitivo" item="Reino Cognitivo"/>
-            <Item link="reino_espiritual" item="Reino Espiritual">
-              <SubItem link="intencao" item="Intenção"></SubItem>
-              <SubItem link="identidade" item="Identidade"></SubItem>
-              <SubItem link="conexao" item="Conexão"></SubItem>
-              <SubItem link="sorte" item="Sorte"></SubItem>
+          <Item item="O Cosmere"/>
+
+          <Item item="Reinos do Cosmere">
+            <SubItem item="Reino Físico"/>
+            <SubItem item="Reino Cognitivo"/>
+
+            <Item item="Reino Espiritual">
+              <SubItem item="Intenção"/>
+              <SubItem item="Identidade"/>
+              <SubItem item="Conexão"/>
+              <SubItem item="Sorte"/>
             </Item>
           </Item>
 
-          <Item link="investidura" item="Investidura">
-            <SubItem link="natureza_e_aparencia" item="Natureza e aparência"></SubItem>
-            <SubItem link="origem_e_ruptura" item="Origem e ruptura"></SubItem>
-            <SubItem link="lascas" item="Lascas"></SubItem>
-            <SubItem link="interacao_e_corrupcao" item="Interação e corrupção"></SubItem>
+          <Item item="Adonalsium"/>
+
+          <Item item="Investidura">
+            <SubItem item="Natureza e aparência"/>
+            <SubItem item="Origem e ruptura"/>
+            <SubItem item="Lascas"/>
+            <SubItem item="Interação e corrupção"/>
+            <SubItem item="Anti-Investidura"/>
           </Item>
+
+          <Item item="Perpendicularidade"/>
+
+          <Item item="Planetas">
+            <SubItem item="Sistemas tri-fractários"/>
+            <SubItem item="Sistemas bi-fractários"/>
+            <SubItem item="Sistemas mono-fractários"/>
+            <SubItem item="Sistemas sem fractal"/>
+            <SubItem item="Outros sistemas"/>
+          </Item>
+
+          <Item item="História">
+            <SubItem item="Pré-Ruptura"/>
+            <SubItem item="A Ruptura de Adonalsium"/>
+            <SubItem item="Missão do Ódio"/>
+            <SubItem item="Ascensão de Harmonia"/>
+            <SubItem item="A verdadeira Desolação"/>
+            <SubItem item="Trell e Scadrial"/>
+            <SubItem item="A era espacial"/>
+          </Item>
+
+          <Item item="Saltadores de mundos">
+            <SubItem item="Hoid"/>
+            <Item item="Grupos de Saltadores">
+              <SubItem item="O Décimo Sétimo Fractal"/>
+              <SubItem item="A Luz Prateada"/>
+              <SubItem item="Os Irish"/>
+              <SubItem item="Os Fantasmas de Sangue"/>
+            </Item>
+            <SubItem item="Outros grupos"/>
+          </Item>
+
+          <Item item="Desenvolvimento"/>
+          <Item item="Livros da Cosmere">
+            <SubItem item="Lançados"/>
+            <SubItem item="Planejados"/>
+            <SubItem item="Ordens de leitura"/>
+          </Item>
+
+          <Item item="Leituras adicionais"/>
+          <Item item="Notas"/>
+          <Item item="Bibliografia"/>
         </Lista>
       </Indice>
 
-      <main className="w-[60%] px-5 flex flex-col gap-3 top-[76px]">
+      <main className="w-[55%] px-5 flex flex-col gap-3 top-[76px]">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -73,7 +120,7 @@ export default function Cosmere() {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <Topico id="introducao" titulo="O Cosmere">
+        <Topico titulo="O Cosmere">
           <Citar citacao="Você se deparou com algo muito, muito maior do que você, sua política ou seu pequeno planeta.">
             <Mencionar quem="Khriss" /> para <Mencionar quem="Kelsier" />.
           </Citar>
@@ -140,7 +187,7 @@ export default function Cosmere() {
           <p>Esses novos portadores do poder de Adonalsium eventualmente deixaram seu planeta natal e migraram para diferentes mundos dentro do Cosmere. Em cada planeta, os Fractais interagiram com as características únicas do local, dando origem a formas distintas de magia. Essa interação entre o poder dos Fractais e os ambientes moldou a realidade de cada mundo e influenciou profundamente a vida e a cultura de seus habitantes.</p>
         </Topico>
         
-        <Topico id="reinos" titulo="Reinos do Cosmere">
+        <Topico titulo="Reinos do Cosmere">
           <p>No Cosmere, toda existência é dividida em três reinos fundamentais que coexistem e interagem entre si: o <Enlaçar destino="/cosmere/reinos/reino-fisico" texto="Reino Físico"/>, o <Enlaçar destino="/cosmere/reinos/reino-cognitivo" texto="Reino Cognitivo"/> e o <Enlaçar destino="/cosmere/reinos/reino-espiritual" texto="Reino Espiritual"/>. Segundo Sanderson, esses reinos foram estabelecidos desde o início do universo e são a base para a compreensão da realidade e da magia nos mundos do Cosmere.</p>
 
           <p>O Reino Físico é o que é percebido como o mundo material, onde os eventos tangíveis acontecem. o Reino Cognitivo reflete pensamentos, ideias e percepções, funcionando quase como um espelho do mundo físico, mas moldado pelas crenças e consciências. Já o Reino Espiritual contém as essências e ideais perfeitos de tudo, servindo como uma matriz que define o que cada coisa ou pessoa é em sua forma mais pura.</p>
@@ -153,7 +200,7 @@ export default function Cosmere() {
 
           <p>Ademais, como a cura mágica no Cosmere funciona conectando as partes de alguém que estão <em>dispersas</em> nos reinos; ela acaba sendo limitada pela percepção de si que foi deixada no <Enlaçar destino="/cosmere/reinos/reino-cognitivo" texto="Reino Cognitivo"/>. Isto é, a forma como a pessoa se percebe influencia diretamente o processo de cura. Se alguém aceita uma característica como parte de si mesmo (como uma cicatriz ou deficiência), essa percepção é projetada no Reino Cognitivo, impedindo a restauração total segundo a forma perfeita e ideal que existe no <Enlaçar destino="/cosmere/reinos/reino-espiritual" texto="Reino Espiritual"/>.</p>
           
-          <Subtopico id="reino_fisico" titulo="Reino Físico">
+          <Subtopico titulo="Reino Físico">
             <Discorrer destino="/cosmere/reinos/reino-fisico/" assunto="o Reino Físico"></Discorrer>
             <p>O Reino Físico do Cosmere é formado de partículas fundamentais conhecidas como  e segue as leis comuns da física, a não ser quando a influência e/ou interferência de algum dos outros Reinos as modifica.</p>
 
@@ -166,7 +213,7 @@ export default function Cosmere() {
             <p>Embora o Cosmere seja vasto, ele não é ilimitado. Sabe-se que houve tentativas de ultrapassar os limites físicos do aglomerado estelar, mas o resultado dessas empreitadas permanece um mistério.</p>
           </Subtopico>
 
-          <Subtopico id="reino_cognitivo" titulo="Reino Cognitivo">
+          <Subtopico titulo="Reino Cognitivo">
             <Discorrer destino="/cosmere/reinos/reino-cognitivo" assunto="o Reino Cognitivo"/>
             <p>O Reino Cognitivo é, em essência, uma versão espelhada do Reino Físico, mas com diferenças marcantes. Ele é conhecido como o Reino do Pensamento, e é moldado diretamente pela percepção coletiva e as ideias predominantes dos habitantes de um mundo, influenciando sua aparência e estrutura ao espelhar o Reino Físico.</p>
 
@@ -190,14 +237,14 @@ export default function Cosmere() {
             <p>Outra peculiaridade do Reino Cognitivo é a inversão entre terra e água. No Reino Cognitivo, as terras firmes do Físico se tornam líquidos navegáveis, enquanto os corpos de água no Físico se tornam massas sólidas. Essa inversão cria um desafio para seres físicos que entram no Reino Cognitivo, pois podem se afogar nos líquidos que o compõem. Por outro lado, entidades cognitivas atravessam essas regiões sem dificuldades.</p>
           </Subtopico>
           
-          <Subtopico id="reino_espiritual" titulo="Reino Espiritual">
+          <Subtopico titulo="Reino Espiritual">
             <Discorrer destino="/cosmere/reinos/reino-espiritual" assunto="o Reino Espiritual"/>
 
             <p>O Reino Espiritual, diferente dos outros dois reinos do Cosmere, não é exatamente um lugar físico ou tangível. Ele existe além do espaço e do tempo, transcendendo as limitações da realidade perceptível. Brandon Sanderson o descreve como um reino de conceitos e essências.</p>
 
             <p>Os conceitos fundamentais do Reino Espiritual incluem:</p>
             <ul className="list-decimal list-inside flex flex-col gap-3">
-              <li id="intencao" className={id_props}>
+              <li id="intenção" className={id_props}>
                 <Enlaçar destino="/cosmere/conceitos/intencao" texto="Intenção"/>:
 
                 <div className="flex flex-col gap-3 mt-3">
@@ -224,7 +271,7 @@ export default function Cosmere() {
               </div>
               </li>
 
-              <li id="conexao" className={id_props}><Enlaçar destino="/cosmere/conceitos/conexao" texto="Conexão"/>
+              <li id="conexão" className={id_props}><Enlaçar destino="/cosmere/conceitos/conexao" texto="Conexão"/>
                 <div className="flex flex-col gap-3 mt-3">
                   <p>A Conexão é uma propriedade espiritual que representa e armazena os vínculos espirituais entre diferentes entidades no Cosmere, como seres vivos, locais, itens e até conceitos abstratos. Esses vínculos transcendem o Reino Físico e têm implicações práticas e mágicas.</p>
 
@@ -251,35 +298,35 @@ export default function Cosmere() {
           </Subtopico>
         </Topico>
 
-        <Topico id="investidura" titulo="Investidura">
+        <Topico titulo="Investidura">
           <Citar citacao="Sua investidura está ligada à sua alma; de fato, poderia ser uma parte da sua alma, assim como seu sangue é parte do seu corpo.">
             <Mencionar quem="VenDell"/> para <Mencionar quem="Waxillium"/>.
           </Citar>
 
           <p>A Investidura é uma das três essências fundamentais que compõem o Cosmere, juntamente com a matéria e a energia. Ela pode ser descrita como uma energia espiritual que permeia e transcende os Reinos Físico, Cognitivo e Espiritual.</p>
 
-          <Subtopico id="natureza_e_aparencia" titulo="Natureza e aparência">
+          <Subtopico titulo="Natureza e aparência">
             <p>A Investidura existe principalmente no <Enlaçar destino="/cosmere/reinos/reino-espiritual" texto="Reino Espiritual"/>, mas pode se manifestar nos outros Reinos. Quando aparece no  <Enlaçar destino="/cosmere/reinos/reino-fisico" texto="Reino Físico"/>, ela geralmente se condensa em um dos estados da matéria: sólido, líquido ou gás. Ao interagir com o Físico, a Investidura obedece às leis de conservação de energia e termodinâmica, reforçando sua conexão com os conceitos físicos do Cosmere.</p>
           </Subtopico>
 
-          <Subtopico id="origem_e_ruptura" titulo="Origem e ruptura">
+          <Subtopico titulo="Origem e ruptura">
             <p>Toda a Investidura no Cosmere estava originalmente ligada diretamente a <Enlaçar destino="/cosmere/adonalsium" texto="Adonalsium"/>. Com a <Enlaçar destino="/cosmere/eventos/ruptura-de-adonalsium" texto="Ruptura"/>, ela foi dividida igualmente entre os <Enlaçar destino="/cosmere/conceitos/fractais-de-adonalsium" texto="Fractais"/>, os dezesseis fragmentos resultantes da quebra de Adonalsium. Apesar dessa divisão, a Investidura mantém um vínculo essencial com a essência de Adonalsium, pois os Fractais são, de certa forma, extensões dele.</p>
 
             <p>Sanderson descreve a Ruptura como algo que “significou tudo e nada ao mesmo tempo” para a Investidura. Isso sugere que, embora a Investidura tenha sido fragmentada, sua essência ainda reflete a unidade original de Adonalsium.</p>
           </Subtopico>
 
-          <Subtopico id="lascas" titulo="Lascas">
+          <Subtopico titulo="Lascas">
             <p>Se deixada sozinha por tempo suficiente, a Investidura pode se tornar autoconsciente, resultando na formação de entidades chamadas Lascas. Exemplos desse fenômeno incluem os <Enlaçar destino="/cosmere/seres/seons" texto="seons"/> de <Enlaçar destino="/livros/elantris" texto="Elantris"/> e os <Enlaçar destino="/cosmere/seres/esprenos" texto="esprenos"/> de <Enlaçar destino="/livros/os-relatos-da-guerra-das-tempestades/" texto="Os relatos da Guerra das Tempestades"/>.</p>
           </Subtopico>
 
-          <Subtopico id="interacao_e_corrupcao" titulo="Interação e corrupção">
+          <Subtopico titulo="Interação e corrupção">
             <p>A Investidura é, por natureza, conectada ao Fractal a que pertence. Contudo, ela pode tentar corromper ou cooptar a Investidura associada a outro Fractal. Essas interações frequentemente geram um efeito vermelho em manifestações mágicas.</p>
 
             <p>Um exemplo disso é a névoa vermelha de <Enlaçar destino="/cosmere/personagens/trell" texto="Trell"/>, uma representação do Fractal <Enlaçar destino="/cosmere/fractais/autonomia" texto="Autonomia"/> tentando invadir Scadrial, planeta protegido por <Enlaçar destino="/cosmere/personagens/harmonia" texto="Harmonia"/>, o portador dos Fractais <Enlaçar destino="/cosmere/fractais/preservacao" texto="Preservação"/> e <Enlaçar destino="/cosmere/fractais/ruina" texto="Ruína"/>.</p>
           </Subtopico>
         </Topico>
 
-        <Topico id="referencias" titulo="Bibliografia">
+        <Topico titulo="Bibliografia">
           <CriarReferencia qual={3}>Quando falamos em Fractais e Fractários no contexto do Cosmere, estamos falando nos fragmentos de Adonalsium e daqueles que portaram os Fractais de Adonalsium. Não confundir com os Fractais e os Fractários de Roshar que aparecem em Os relatos da Guerra da Tempestades.</CriarReferencia>
         </Topico>
       </main>

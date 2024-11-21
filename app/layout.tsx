@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="dark scroll-smooth">
+    <html lang="pt-BR" className="dark scroll-smooth scrollbar-thin">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden `}
       >

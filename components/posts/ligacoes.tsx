@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowUp, Eye } from "lucide-react";
 
 // constantes:
-const estilo_de_link = "text-destaque hover:underline"
+const estilo_de_link = "text-destaque hover:underline scroll-mt-[76px]"
 
 // lista de tipagem:
 interface Ancoras {
@@ -85,12 +85,16 @@ const Referenciar: React.FC<AncReferencias> = ({qual}) => {
 const CriarReferencia: React.FC<Referencias> = ({qual, children}) => {
     return (
         <div className="flex gap-3">
-            <p className="text-xs text-zinc-400">{`[${qual}]`} {children}.</p>
+            <p className="text-xs text-zinc-400">{`[${qual}]`} {children}</p>
             <Link href={`#${qual}a`} className="text-zinc-400 hover:text-destaque hover:underline"><ArrowUp size={16}/></Link>
         </div>
         
     );
 }
 
+const Ir: React.FC<Enlaces> = ({destino, texto}) =>{
+  return <a href={destino} target="_blank" rel="noopener noreferrer" className={estilo_de_link}>{texto}</a>
+}
 
-export { Ancorar, CriarReferencia, Discorrer, Enlaçar, Listar, Referenciar }
+
+export { Ancorar, CriarReferencia, Discorrer, Enlaçar, Listar, Ir, Referenciar }

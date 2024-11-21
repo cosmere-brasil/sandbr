@@ -11,7 +11,7 @@ interface Significados {
     significado: string,
 }
 
-const tooltip_props = "text-white bg-[#0a0a0a] border-[#262626] border";
+const tooltip_props = "text-white bg-[#0a0a0a] border-[#262626] border max-w-52 text-center";
 
 const Significado: React.FC<Significados> = ({ palavra, significado }) => {
   return (
