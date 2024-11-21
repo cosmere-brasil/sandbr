@@ -59,7 +59,7 @@ const Discorrer: React.FC<Detalhes> = ({destino, assunto}) =>{
 // Enlaçar é usado para criar links para outras páginas da enciclopédia
 const Enlaçar: React.FC<Enlaces> = ({ destino, texto }) => {
   return (
-      <Link href={destino} className={estilo_de_link} target="_blank">
+      <Link href={destino} className={estilo_de_link} prefetch={true}>
         {texto}
       </Link>
   );
