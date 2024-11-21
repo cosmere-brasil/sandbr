@@ -1,9 +1,9 @@
 const estilos = {
-    caminho: "pl-5 sticky top-14 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 h-6 flex items-center",
+    caminho: "sticky top-14 h-8 bg-background flex items-center z-50",
     main: "w-[80%] flex flex-col gap-3",
     article: "flex",
-    post: "w-[70%] h-screen px-5",
-    complementar: "w-[30%] h-screen bg-red-900"
+    post: "w-[70%] px-5",
+    complementar: "w-[30%] flex flex-col items-center"
 }
 
 export { estilos }
