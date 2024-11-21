@@ -1,6 +1,5 @@
 // importação de dependências:
 import Link from "next/link";
-import Image from "next/image";
 import { differenceInYears } from "date-fns";
 
 // importação de componentes meus:
