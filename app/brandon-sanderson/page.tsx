@@ -4,13 +4,15 @@ import Image from "next/image";
 import { differenceInYears } from "date-fns";
 
 // importação de componentes meus:
-import { Topico } from "@/components/posts/secoes";
-import { Indice, Item, Lista } from "@/components/posts/indice";
+import { Subtopico, Topico } from "@/components/posts/secoes";
+import { Indice, Item, Lista, SubItem } from "@/components/posts/indice";
 import { Enlaçar, Ir, CriarReferencia, Referenciar } from "@/components/posts/ligacoes";
+import { Imagem } from "@/components/posts/imagens";
 
 // importação de componentes da shadcn:
 import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
 // importação de variáveis:
 import { estilos } from "@/lib/constants/estilos_de_posts";
@@ -28,37 +30,38 @@ export default function Pagina() {
         <Lista>
           <Item item="Brandon Sanderson" />
           <Item item="Curiosidades" />
-          <Item item="Livros" />
+          <Item item="Livros">
+            <SubItem item="Livros da Cosmere em ordem de lançamento:"/>
+          </Item>
           <Item item="Referências" />
         </Lista>
       </Indice>
 
       <main className={estilos.main}>
-        <Breadcrumb className={estilos.caminho}>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <Link href="/" className="hover:text-white">
-                Enciclopédia
-              </Link>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger className="cursor-default">
-                    <BreadcrumbPage>Brandon Sanderson</BreadcrumbPage>
-                  </TooltipTrigger>
-                  <TooltipContent className={tooltip_props}>
-                    <p>Parece que você já está aqui</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-
         <article className={estilos.article}>
           <section className={estilos.post}>
+          <Breadcrumb className={estilos.caminho}>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <Link href="/" className="hover:text-white">
+                  Enciclopédia
+                </Link>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger className="cursor-default">
+                      <BreadcrumbPage>Brandon Sanderson</BreadcrumbPage>
+                    </TooltipTrigger>
+                    <TooltipContent className={tooltip_props}>
+                      <p>Parece que você já está aqui</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
             <Topico titulo="Brandon Sanderson">
               <p>Brandon Winn Sanderson, nascido em <Ir destino="https://pt.wikipedia.org/wiki/19_de_dezembro" texto="19 de dezembro"/> de <Ir destino="https://pt.wikipedia.org/wiki/1975" texto="1975"/>, em <Ir destino="https://pt.wikipedia.org/wiki/Lincoln_(Nebraska)" texto="Lincoln"/>, <Ir destino="https://pt.wikipedia.org/wiki/Nebraska" texto="Nebraska"/>, é um autor americano de {idade()} anos conhecido por seus romances de <Ir destino="https://pt.wikipedia.org/wiki/Alta_fantasia" texto="alta fantasia"/>, <Ir destino="https://pt.wikipedia.org/wiki/Ficção_científica" texto="ficção científica"/> e <Ir destino="https://literar.org/glossario/jovem-adulto-genero-literario-e-suas-caracteristicas/" texto="literatura jovem-adulta"/>.</p>
               
@@ -72,7 +75,202 @@ export default function Pagina() {
             </Topico>
 
             <Topico titulo="Livros">
-              
+              <Subtopico titulo="Livros da Cosmere em ordem de lançamento:">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Ano</TableHead>
+                    <TableHead>Título original</TableHead>
+                    <TableHead>Título brasileiro</TableHead>
+                  </TableRow>
+                </TableHeader>
+                
+                <TableBody>
+                  <TableRow>
+                    <TableCell>2005</TableCell>
+                    <TableCell>Elantris</TableCell>
+                    <TableCell>Elantris</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2006</TableCell>
+                    <TableCell>The Final Empire</TableCell>
+                    <TableCell>O Império Final</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2007</TableCell>
+                    <TableCell>The Well of Ascension</TableCell>
+                    <TableCell>O Poço da Ascensão</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2008</TableCell>
+                    <TableCell>The Hero of Ages</TableCell>
+                    <TableCell>O Heróis das Eras</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2009</TableCell>
+                    <TableCell>Warbreaker</TableCell>
+                    <TableCell>Warbreaker: O Alento dos Deuses</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2010</TableCell>
+                    <TableCell>The Way of Kings</TableCell>
+                    <TableCell>O Caminho dos Reis</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2011</TableCell>
+                    <TableCell>The Alloy of Law</TableCell>
+                    <TableCell>A Liga da Lei</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2014</TableCell>
+                    <TableCell>Words of Radiance</TableCell>
+                    <TableCell>Palavras de Radiância</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2015</TableCell>
+                    <TableCell>Shadows of Self</TableCell>
+                    <TableCell> As Sombras de Si Mesmo</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2016</TableCell>
+                    <TableCell>The Bands of Mourning</TableCell>
+                    <TableCell>Os Braceletes da Perdição</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2017</TableCell>
+                    <TableCell>Oathbringer</TableCell>
+                    <TableCell>Sacramentadora</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2017</TableCell>
+                    <TableCell>Rhythm of War</TableCell>
+                    <TableCell>-</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2022</TableCell>
+                    <TableCell>The Lost Metal</TableCell>
+                    <TableCell>-</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2023</TableCell>
+                    <TableCell>Tress of the Emerald Sea</TableCell>
+                    <TableCell>Tress, a garota do Mar Esmeralda</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2023</TableCell>
+                    <TableCell>Yumi and the Nightmare Painter</TableCell>
+                    <TableCell>-</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2023</TableCell>
+                    <TableCell>The Sunlit Man</TableCell>
+                    <TableCell>-</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2024</TableCell>
+                    <TableCell>Wind and Truth</TableCell>
+                    <TableCell>-</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2024</TableCell>
+                    <TableCell>Isles of the Emberdark</TableCell>
+                    <TableCell>-</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+              </Subtopico>
+              <Table>
+                <TableCaption>Livros da série Nascidos da Bruma</TableCaption>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Ano</TableHead>
+                    <TableHead>Título original</TableHead>
+                    <TableHead>Título brasileiro</TableHead>
+                  </TableRow>
+                </TableHeader>
+                
+                <TableBody>
+                  <TableRow>
+                    <TableCell>2006</TableCell>
+                    <TableCell>The Final Empire</TableCell>
+                    <TableCell>O Império Final</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2007</TableCell>
+                    <TableCell>The Well of Ascension</TableCell>
+                    <TableCell>O Poço da Ascensão</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2008</TableCell>
+                    <TableCell>The Hero of Ages</TableCell>
+                    <TableCell>O Heróis das Eras</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2011</TableCell>
+                    <TableCell>The Alloy of Law</TableCell>
+                    <TableCell>A Liga da Lei</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2015</TableCell>
+                    <TableCell>Shadows of Self</TableCell>
+                    <TableCell> As Sombras de Si Mesmo</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2016</TableCell>
+                    <TableCell>The Bands of Mourning</TableCell>
+                    <TableCell>Os Braceletes da Perdição</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2016</TableCell>
+                    <TableCell>Mistborn: The Secret History</TableCell>
+                    <TableCell>-</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2022</TableCell>
+                    <TableCell>The Lost Metal</TableCell>
+                    <TableCell>-</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+
+              <Table>
+                <TableCaption>Livros da série Os relatos da Guerra das Tempestades</TableCaption>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Ano</TableHead>
+                    <TableHead>Título original</TableHead>
+                    <TableHead>Título brasileiro</TableHead>
+                  </TableRow>
+                </TableHeader>
+                
+                <TableBody>
+                  <TableRow>
+                    <TableCell>2010</TableCell>
+                    <TableCell>The Way of Kings</TableCell>
+                    <TableCell>O Caminho dos Reis</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2014</TableCell>
+                    <TableCell>Words of Radiance</TableCell>
+                    <TableCell>Palavras de Radiância</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2017</TableCell>
+                    <TableCell>Oathbringer</TableCell>
+                    <TableCell>Sacramentadora</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2017</TableCell>
+                    <TableCell>Rhythm of War</TableCell>
+                    <TableCell>-</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>2024</TableCell>
+                    <TableCell>Wind and Truth</TableCell>
+                    <TableCell>-</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
             </Topico>
 
             <Topico titulo="Referências">
@@ -82,7 +280,7 @@ export default function Pagina() {
           </section>
 
           <section className={estilos.complementar}>
-            <Image src={BS} height={300} alt="Foto do Brandon Sanderson"/>
+            <Imagem fonte={BS} alt="Foto do Brandon Sanderson"/>
           </section>
         </article>
       </main>
