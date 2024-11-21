@@ -21,7 +21,7 @@ export default function Pagina() {
   const idade = ()=> differenceInYears(new Date(), new Date('1975-12-19'))
 
   const estilos = {
-    caminho: "sticky top-14 h-8 bg-background flex items-center z-50",
+    caminho: "sticky top-14 h-8 bg-background flex items-center z-40",
     main: "w-[80%] flex flex-col gap-3",
     article: "flex",
     post: "w-[70%] px-5",
