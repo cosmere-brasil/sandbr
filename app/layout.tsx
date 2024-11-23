@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "@/components/pagina/header";
-import { Footer } from "@/components/pagina/footer";
+import { Rodape } from "@/components/pagina/footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,7 +32,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
-        <Footer />
+        <Rodape />
       </body>
     </html>
   );

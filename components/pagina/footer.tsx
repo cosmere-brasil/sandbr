@@ -1,47 +1,36 @@
-// importação de dependências:
-import Image from "next/image";
 import Link from "next/link";
-
-// importação de arquivos:
-import Cobre from "@/public/cobre.svg";
+import { Ir } from "../posts/ligacoes";
 
 interface Enlaces {
-  link: string;
-  titulo: string;
+  destino: string;
+  texto: string;
 }
-const Enlace: React.FC<Enlaces> = ({ link, titulo }) => {
+
+const Enlaçar: React.FC<Enlaces> = ({ destino, texto }) => {
   return (
-    <li>
-      <Link href={link} className="hover:text-destaque hover:underline">
-        {titulo}
+      <Link href={destino} className="hover:underline me-4 md:me-6" prefetch={true}>
+        {texto}
       </Link>
-    </li>
   );
 };
-
-export function Footer() {
+export function Rodape() {
+  const ano = new Date().getFullYear().toString().slice(1)
   return (
-    <footer className="max-w-screen flex flex-col items-center bg-[#0d1117] p-5">
-      <div className="flex flex-col items-center self-start">
-        <div className="flex items-center">
-          <Image src={Cobre} width={70} height={70} alt="Cosmere Brasil" />
-          <h3 className="text-xl">Sand.br</h3>
-        </div>
-        <p className="text-sm">(C) 12.024 EH Sandbr</p>
+    <footer className="bg-background border-t">
+      <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 12.{ano} EH, <Link href="/" className="hover:underline">Sandbr</Link>. Distribuído sob as licenças <Ir destino="https://github.com/sand-br/sandbr/blob/main/LICENSE.md" texto="GPL v3"/> e <Ir destino="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.pt" texto="CC BY-NC-SA 4.0"/>.</span>
+        <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+          <li>
+            <Enlaçar destino="/sobre" texto="Sobre a Sandbr"/>
+          </li>
+          <li>
+            <Enlaçar destino="/sobre/licencas" texto="Licenças"/>
+          </li>
+          <li>
+            <Enlaçar destino="/sobre/contato" texto="Contato"/>
+          </li>
+        </ul>
       </div>
-
-      <section className="w-[98%] flex flex-row gap-8 items-center justify-start">
-        <ul className="text-sm flex flex-col gap-2">
-          <Enlace link="/licenca" titulo="Licença" />
-          <Enlace link="/conteudo-autoral" titulo="Uso de conteúdo autoral" />
-          <Enlace link="/sobre" titulo="Sobre nós" />
-        </ul>
-        <ul className="text-sm">
-          <Enlace link="/licenca" titulo="Licença" />
-          <Enlace link="/conteudo-autoral" titulo="Uso de conteúdo autoral" />
-          <Enlace link="/sobre" titulo="Sobre nós" />
-        </ul>
-      </section>
     </footer>
   );
 }
