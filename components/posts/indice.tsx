@@ -44,7 +44,7 @@ const Item: React.FC<Items> = ({ item, children }) => {
 
 const Lista: React.FC<Indices> = ({ children }) => {
   return (
-    <ol className="list-decimal list-inside flex flex-col gap-2 pb-10">
+    <ol className="list-decimal list-inside flex flex-col gap-2 pt-3 pb-10">
       {children}
     </ol>
   );
