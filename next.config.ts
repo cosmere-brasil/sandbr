@@ -22,6 +22,10 @@ module.exports = {
         protocol: 'https',
         hostname: 'uploads.coppermind.net',
       },
+      {
+        protocol: 'https',
+        hostname: 'i.pinimg.com'
+      }
     ],
   },
 }
