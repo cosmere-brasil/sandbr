@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowUp, Eye } from "lucide-react";
 
 // constantes:
-const estilo_de_link = "text-destaque hover:underline scroll-mt-[76px]"
+const estilo_de_link = "text-destaque hover:underline scroll-mt-[84px]"
 
 // lista de tipagem:
 interface Ancoras {
@@ -75,8 +75,8 @@ const Listar: React.FC<Listagem> = ({qual}) => {
 // Referenciar é usado para criar uma âncora que leva à área de referências
 const Referenciar: React.FC<AncReferencias> = ({qual}) => {
     return (
-      <sup>
-        <Link href={`#${qual}`} className={estilo_de_link} id={`${qual}a`}>{`[${qual}]`}</Link>
+      <sup className="scroll-mt-[84px]">
+        <Link href={`#nota_${qual}`} className={estilo_de_link} id={`nota_rev_${qual}`}>{`[${qual}]`}</Link>
       </sup>
     );
 }
@@ -85,8 +85,8 @@ const Referenciar: React.FC<AncReferencias> = ({qual}) => {
 const CriarReferencia: React.FC<Referencias> = ({qual, children}) => {
     return (
         <div className="flex gap-3">
-            <p className="text-xs text-zinc-400">{`[${qual}]`} {children}</p>
-            <Link href={`#${qual}a`} className="text-zinc-400 hover:text-destaque hover:underline"><ArrowUp size={16}/></Link>
+            <Link href={`#nota_rev_${qual}`} className="text-zinc-400 hover:text-destaque hover:underline"><ArrowUp size={16}/></Link>
+            <p className="text-xs text-zinc-400" id={`nota_${qual}`}>{`[${qual}]`} {children}</p>
         </div>
         
     );
