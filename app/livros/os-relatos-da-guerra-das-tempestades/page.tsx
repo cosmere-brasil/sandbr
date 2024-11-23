@@ -1,12 +1,11 @@
 // importação de dependências:
 import Link from "next/link";
 import Image from "next/image";
-import { differenceInYears } from "date-fns";
 
 // importação de componentes meus:
-import { Subtopico, Topico } from "@/components/posts/secoes";
+import { Topico } from "@/components/posts/secoes";
 import { Indice, Item, Lista, SubItem } from "@/components/posts/indice";
-import { Enlaçar, Ir, CriarReferencia, Referenciar } from "@/components/posts/ligacoes";
+import { Enlaçar, Ir, CriarReferencia } from "@/components/posts/ligacoes";
 import { Imagem } from "@/components/posts/imagens";
 import { Citar } from "@/components/posts/citacoes";
 
@@ -16,11 +15,9 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
 // importação de arquivos:
-import BS from "@/public/imgs/brandon-sanderson.jpg"
 
 export default function Pagina() {
   const tooltip_props = "text-white bg-[#0a0a0a] border-[#262626] border";
-  const idade = ()=> differenceInYears(new Date(), new Date('1975-12-19'))
 
   const estilos = {
     caminho: "sticky top-14 h-8 bg-background flex items-center z-40",
