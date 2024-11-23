@@ -12,6 +12,7 @@ import { Imagem } from "@/components/posts/imagens";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Revisado } from "@/components/posts/revisao";
 
 // importação de arquivos:
 import BS from "@/public/imgs/brandon-sanderson.jpg"
@@ -281,6 +282,8 @@ export default function Pagina() {
               <CriarReferencia qual={1}><Ir destino="https://web.archive.org/web/20071212090331/http://www.tor-forge.com/NewsArticle.aspx?articleId=647" texto="“A Tor anuncia que o romance final da lendária série de fantasia A Roda do Tempo® do best-seller Robert Jordan será concluído pelo autor Brandon Sanderson.”"/> Originalmente em inglês.</CriarReferencia>
               <CriarReferencia qual={2}>“Chegamos novamente ao mais famoso (e bagunçado) dos feriados cosmere: o Dia de Mastigar Cabeças de Koloss. Obrigado a todos pelos gentis votos.” - <Ir destino="https://x.com/BrandSanderson/status/413738065476063232" texto="Brandon Sanderson no X"/>, dia 19 de dezembro de 2013.</CriarReferencia>
             </Topico>
+
+            <Revisado quando="22/11/2024" quem="Raavë Aires" link="https://github.com/raave-aires/"/>
           </section>
 
           <section className={estilos.complementar}>

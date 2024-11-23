@@ -6,6 +6,7 @@ import { Indice, Lista, Item, SubItem } from "@/components/posts/indice";
 import { Subtopico, Topico } from "@/components/posts/secoes";
 import { Enlaçar, Ir } from "@/components/posts/ligacoes";
 import { Imagem } from "@/components/posts/imagens";
+import { Revisado } from "@/components/posts/revisao";
 
 // importação de componentes da shadcn:
 import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
@@ -103,7 +104,7 @@ export default function Pagina() {
               <Enlaçar destino="/sobre/licencas" texto="Licenças desta enciclopédia."/>
             </Topico>
 
-            <p className="text-zinc-400 text-sm">Revisado em 12.024-11-22 por <Ir destino="https://github.com/raave-aires/" texto="Raavë Aires"/>.</p>
+            <Revisado quando="22/11/2024" quem="Raavë Aires" link="https://github.com/raave-aires/"/>
           </section>
 
           <section className={estilos.complementar}>

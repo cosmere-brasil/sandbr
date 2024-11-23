@@ -8,6 +8,7 @@ import { CriarReferencia, Discorrer, Enlaçar, Listar } from "@/components/posts
 import { Subtopico, Topico } from "@/components/posts/secoes";
 import { Significado } from "@/components/posts/significado";
 import { Indice, Item, Lista, SubItem } from "@/components/posts/indice";
+import { Revisado } from "@/components/posts/revisao";
 
 // importação de componentes da shadcn:
 import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
@@ -329,6 +330,8 @@ export default function Cosmere() {
         <Topico titulo="Bibliografia">
           <CriarReferencia qual={3}>Quando falamos em Fractais e Fractários no contexto do Cosmere, estamos falando nos fragmentos de Adonalsium e daqueles que portaram os Fractais de Adonalsium. Não confundir com os Fractais e os Fractários de Roshar que aparecem em Os relatos da Guerra da Tempestades.</CriarReferencia>
         </Topico>
+
+        <Revisado quando="22/11/2024" quem="Raavë Aires" link="https://github.com/raave-aires/"/>
       </main>
 
       <section className="w-[25%]">
