@@ -13,7 +13,7 @@ interface Topicos {
 const Topico: React.FC<Topicos> = ({ titulo, children }) => {
   return (
     <section className="flex flex-col gap-3 text-justify hyphens-auto mb-5">
-      <h2 className="text-xl font-medium scroll-mt-[76px]" id={titulo.toLowerCase().replace(/\s/g, '_')}>
+      <h2 className="text-xl font-medium scroll-mt-[84px]" id={titulo.toLowerCase().replace(/\s/g, '_')}>
         {titulo}
       </h2>
       {children}
@@ -24,7 +24,7 @@ const Topico: React.FC<Topicos> = ({ titulo, children }) => {
 const Subtopico: React.FC<Topicos> = ({ titulo, children }) => {
   return (
     <div className="flex flex-col gap-3 mt-5 text-justify hyphens-auto">
-      <h3 className="text-lg font-medium scroll-mt-[76px]" id={titulo.toLowerCase().replace(/\s/g, '_')}>
+      <h3 className="text-lg font-medium scroll-mt-[84px]" id={titulo.toLowerCase().replace(/\s/g, '_')}>
         {titulo}
       </h3>
       {children}
