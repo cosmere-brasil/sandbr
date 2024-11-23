@@ -34,7 +34,7 @@ const conceitos: Categorias[] = [
 const livros: Categorias[] = [
   {
     nome: "Os Relatos da Guerra das Tempestades",
-    link: "/livros/os-relatos",
+    link: "/livros/os-relatos-da-guerra-das-tempestades",
   },
   {
     nome: "Nascidos da Bruma",
