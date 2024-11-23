@@ -5,8 +5,6 @@ import Image, { StaticImageData } from "next/image";
 
 // importação de componentes:
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
 
 interface Dados_das_Imagens {
   fonte: string | StaticImageData,
@@ -17,16 +15,6 @@ interface Dados_das_Imagens {
 }
 
 const Imagem: React.FC<Dados_das_Imagens> = ({fonte, alt, link_do_autor, autor, descricao}) => {
-  const url: string | StaticImageData = fonte;
-  
-  const baixar_imagem = async () => {
-    console.log(url)
-  };
-
-  const BotaoBaixar = () => {
-    return <Button onClick={baixar_imagem} className="p-0 bg-transparent text-white hover:bg-transparent hover:text-destaque self-end"><Download/></Button> 
-  }
-
   return (
     <div>
       <Card>
@@ -34,7 +22,6 @@ const Imagem: React.FC<Dados_das_Imagens> = ({fonte, alt, link_do_autor, autor, 
           <Image src={fonte} alt={alt} width={350} height={350} className="rounded-md"/>
           <p className="text-xs">Feita por <a href={link_do_autor} target="_blank" className="text-destaque">{autor}.</a></p>
           <p className="text-sm">{descricao}</p>
-          <BotaoBaixar/>
         </CardContent>
       </Card>
     </div>
