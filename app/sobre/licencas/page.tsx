@@ -188,6 +188,8 @@ export default function Pagina() {
               <CriarReferencia qual={1}>
                 A Sandbr não é afiliada a Brandon Sanderson, suas editoras ou quaisquer entidades relacionadas às suas obras e à publicação destas.
               </CriarReferencia>
+
+              <Revisado quando="22/11/2024" quem="Raavë Aires" link="https:github.com/raave-aires/"/>
             </Topico>
           </section>
 
