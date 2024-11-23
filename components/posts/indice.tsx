@@ -52,7 +52,7 @@ const Lista: React.FC<Indices> = ({ children }) => {
 
 const SubItem: React.FC<SubItems> = ({ item }) => {
   return (
-    <li>
+    <li className="pt-2">
       <Link href={`#${item.toLowerCase().replace(/\s/g, '_')}`} className={estilo_de_link} scroll={true}>{item}</Link>
     </li>
   ) ;
