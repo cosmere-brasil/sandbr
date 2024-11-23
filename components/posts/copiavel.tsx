@@ -26,11 +26,15 @@ const Copiavel: React.FC<Copiaveis> = ({ titulo, children }) => {
         .writeText(content)
         .then(() => {
           toast({
+            duration: 5000,
             description: "O texto foi copiado.",
           })
         })
         .catch(() => {
-          alert("Erro ao copiar o conteúdo.");
+          toast({
+            duration: 5000,
+            description: "Houve um erro ao copiar o texto. Se ele persistir, tente recarregar a página.",
+          })
         });
     }
   };
@@ -46,7 +50,7 @@ const Copiavel: React.FC<Copiaveis> = ({ titulo, children }) => {
 
       <div
         className="bg-black py-3 px-5 rounded-md"
-        ref={preRef} // Referência para o elemento
+        ref={preRef} // referência para o elemento
       >
         <pre className="max-h-72 flex flex-col gap-3 overflow-y-auto overflow-x-hidden font-mono whitespace-pre-wrap scrollbar-none">
           {children}
