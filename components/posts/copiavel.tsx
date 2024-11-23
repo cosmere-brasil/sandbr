@@ -1,7 +1,11 @@
 "use client"
 
+// importação de dependências:
 import React, { ReactNode, useRef } from "react";
+
+// importação de componentes:
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast"
 import { Copy } from "lucide-react";
 
 interface Copiaveis {
@@ -10,17 +14,20 @@ interface Copiaveis {
 }
 
 const Copiavel: React.FC<Copiaveis> = ({ titulo, children }) => {
-  const preRef = useRef<HTMLDivElement>(null); // Referência ao elemento que será copiado
+  const { toast } = useToast()
+  const preRef = useRef<HTMLDivElement>(null); // referência ao elemento que será copiado
 
-  // Função para copiar o conteúdo renderizado
+  // função para copiar o conteúdo renderizado dentro do <pre>
   const handleCopy = () => {
     if (preRef.current) {
-      // Seleciona o texto renderizado dentro do elemento
+      // seleciona o texto renderizado dentro do elemento
       const content = preRef.current.innerText;
       navigator.clipboard
         .writeText(content)
         .then(() => {
-          alert("Código copiado!"); // Feedback ao usuário
+          toast({
+            description: "O texto foi copiado.",
+          })
         })
         .catch(() => {
           alert("Erro ao copiar o conteúdo.");

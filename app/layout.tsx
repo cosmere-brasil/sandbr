@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+
+// importação de componentes:
 import { Header } from "@/components/pagina/header";
 import { Rodape } from "@/components/pagina/footer";
+
+// importação de componentes shadcn:
+import { Toaster } from "@/components/ui/toaster"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,6 +38,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Rodape />
+        <Toaster />
       </body>
     </html>
   );
