@@ -122,7 +122,7 @@ export default function Cosmere() {
 
         <Topico titulo="O Cosmere">
           <Citar citacao="Você se deparou com algo muito, muito maior do que você, sua política ou seu pequeno planeta.">
-            <Mencionar quem="Khriss" /> para <Mencionar quem="Kelsier" />.
+            - <Mencionar quem="Khriss" /> para <Mencionar quem="Kelsier" />.
           </Citar>
 
           <p>

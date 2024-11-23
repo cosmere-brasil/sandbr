@@ -5,7 +5,7 @@ import Link from "next/link";
 // lista de tipagem:
 interface Citação {
   citacao: string;
-  children: string | ReactNode;
+  children?: string | ReactNode;
 }
 
 interface Menção {
@@ -16,7 +16,7 @@ interface Menção {
 const Citar: React.FC<Citação> = ({ citacao, children }) => {
   return (
     <p className="text-zinc-400 text-base italic">
-      “{citacao}” - {children}
+      “{citacao}” {children}
     </p>
   );
 };
