@@ -18,13 +18,14 @@ import GitHub from "@/public/github.svg"
 import Discord from "@/public/discord.svg"
 
 //importação de variáveis:
-import { conceitos, livros, mundos, outros, personagens, ItemCat, ItemCatO } from "@/components/pagina/header_items/categorias";
+import { conceitos, livros, mundos, outros, personagens, ItemCat } from "@/components/pagina/header_items/categorias";
 import { universos, ItemUni } from "@/components/pagina/header_items/universos";
 
 function Header() {
   const triger_props = "bg-transparent p-2 aria-expanded:text-destaque";
   const aItem_props = "w-[240px]";
   const a_props = "flex items-center"
+  const ul_props = "flex flex-wrap gap-1 pb-2"
   const icons_size = 18
   const tooltip_props = "text-white bg-[#0a0a0a] border-[#262626] border"
 
@@ -32,7 +33,7 @@ function Header() {
     <>
       <header className="sticky top-0 z-50 w-full h-14 border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:border-border flex items-center justify-center">
         <div className="w-[98%] flex items-center justify-between">
-          <div className="flex items-center">
+          <div className="flex jus items-center">
             <h1 className="flex items-center justify-center">
               <Link href="/">
                 <Image src={Cobre} width={50} height={50} alt="Cosmere Brasil" />
@@ -45,15 +46,16 @@ function Header() {
                   <NavigationMenuTrigger className={triger_props}>
                     Categorias
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
+                  <NavigationMenuContent className="flex-col lg:flex overflow-y-scroll scrollbar-none">
                     <Accordion
-                      type="multiple"
-                      className="flex flex-wrap w-[500px] m-3 gap-3"
+                      type="single"
+                      collapsible
+                      className="flex flex-col lg:flex-wrap m-3 gap-3"
                     >
                       <AccordionItem value="livros" className={aItem_props}>
                         <AccordionTrigger>Livros</AccordionTrigger>
                         <AccordionContent>
-                          <ul>
+                          <ul className={ul_props}>
                             {livros.map((livro) => (
                               <ItemCat
                                 key={livro.nome}
@@ -68,7 +70,7 @@ function Header() {
                       <AccordionItem value="personagens" className={aItem_props}>
                         <AccordionTrigger>Personagens</AccordionTrigger>
                         <AccordionContent>
-                          <ul>
+                          <ul className={ul_props}>
                             {personagens.map((personagem) => (
                               <ItemCat
                                 key={personagem.nome}
@@ -83,7 +85,7 @@ function Header() {
                       <AccordionItem value="mundos" className={aItem_props}>
                         <AccordionTrigger>Mundos</AccordionTrigger>
                         <AccordionContent>
-                          <ul>
+                          <ul className={ul_props}>
                             {mundos.map((mundo) => (
                               <ItemCat
                                 key={mundo.nome}
@@ -94,11 +96,17 @@ function Header() {
                           </ul>
                         </AccordionContent>
                       </AccordionItem>
-
+                    </Accordion>
+                    
+                    <Accordion
+                      type="single"
+                      collapsible
+                      className="flex flex-col lg:flex-wrap m-3 gap-3 overflow-y-scroll scrollbar-none"
+                    >
                       <AccordionItem value="conceitos" className={aItem_props}>
                         <AccordionTrigger>Conceitos</AccordionTrigger>
                         <AccordionContent>
-                          <ul>
+                          <ul className={ul_props}>
                             {conceitos.map((conceito) => (
                               <ItemCat
                                 key={conceito.nome}
@@ -109,20 +117,22 @@ function Header() {
                           </ul>
                         </AccordionContent>
                       </AccordionItem>
-                    </Accordion>
 
-                    <div className="m-3 text-sm w-[500px] flex flex-col gap-2 pb-2">
-                      <h2>Outros</h2>
-                      <ul className="flex flex-wrap gap-1">
-                        {outros.map((outro) => (
-                          <ItemCatO
-                            key={outro.nome}
-                            nome={outro.nome}
-                            link={outro.link}
-                          />
-                        ))}
-                      </ul>
-                    </div>
+                      <AccordionItem value="outros" className={aItem_props}>
+                        <AccordionTrigger>Outros</AccordionTrigger>
+                        <AccordionContent>
+                          <ul className={ul_props}>
+                            {outros.map((outro) => (
+                              <ItemCat
+                                key={outro.nome}
+                                nome={outro.nome}
+                                link={outro.link}
+                              />
+                            ))}
+                          </ul>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
                   </NavigationMenuContent>
                 </NavigationMenuItem>{/*fim do container das categorias */}
 
@@ -131,7 +141,7 @@ function Header() {
                     Universos
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-2 p-2 md:w-[500px] md:grid-cols-2 lg:w-[550px] ">
+                    <ul className="grid w-[300px] gap-2 p-2 md:w-[500px] md:grid-cols-2 lg:w-[550px] ">
                       {universos.map((universo) => (
                         <ItemUni
                           key={universo.nome}
@@ -153,7 +163,7 @@ function Header() {
             </NavigationMenu>{/*fim do container do menu*/}
           </div>
 
-          <div className="flex gap-3 mr-3 w-auto">
+          <div className="hidden lg:flex gap-3 mr-3 w-auto">
             <Button
               variant="outline"
               className="flex items-center justify-start pl-3 w-52 h-8"
