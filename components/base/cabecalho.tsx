@@ -4,30 +4,54 @@ import Image from "next/image";
 import Link from "next/link";
 
 // importação de componentes:
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+Accordion,
+AccordionContent,
+AccordionItem,
+AccordionTrigger
+} from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 // importação de ícones:
 import { Search } from "lucide-react";
 
 // importação de arquivos:
 import Cobre from "@/public/cobre.svg";
-import GitHub from "@/public/github.svg"
-import Discord from "@/public/discord.svg"
+import GitHub from "@/public/github.svg";
+import Discord from "@/public/discord.svg";
 
 //importação de variáveis:
-import { conceitos, livros, mundos, outros, personagens, ItemCat } from "@/components/pagina/header_items/categorias";
-import { universos, ItemUni } from "@/components/pagina/header_items/universos";
+import {
+  conceitos,
+  livros,
+  mundos,
+  outros,
+  personagens,
+  ItemCat,
+} from "@/components/base/itens_do_menu/categorias";
+import { universos, ItemUni } from "@/components/base/itens_do_menu/universos";
 
-function Header() {
+function Cabecalho() {
   const triger_props = "bg-transparent p-2 aria-expanded:text-destaque";
   const aItem_props = "w-[240px]";
-  const a_props = "flex items-center"
-  const ul_props = "flex flex-wrap gap-1 pb-2"
-  const icons_size = 18
-  const tooltip_props = "text-white bg-[#0a0a0a] border-[#262626] border"
+  const a_props = "flex items-center";
+  const ul_props = "flex flex-wrap gap-1 pb-2";
+  const icons_size = 18;
+  const tooltip_props = "text-white bg-[#0a0a0a] border-[#262626] border";
 
   return (
     <>
@@ -36,13 +60,20 @@ function Header() {
           <div className="flex jus items-center">
             <h1 className="flex items-center justify-center">
               <Link href="/">
-                <Image src={Cobre} width={50} height={50} alt="Cosmere Brasil" />
+                <Image
+                  src={Cobre}
+                  width={50}
+                  height={50}
+                  alt="Cosmere Brasil"
+                />
               </Link>
             </h1>
 
-            <NavigationMenu className="flex flex-col transition-none transform-none duration-0">{/*container do menu*/}
+            <NavigationMenu className="flex flex-col transition-none transform-none duration-0">
+              {/*container do menu*/}
               <NavigationMenuList className="relative">
-                <NavigationMenuItem>{/*container das categorias*/}
+                <NavigationMenuItem>
+                  {/*container das categorias*/}
                   <NavigationMenuTrigger className={triger_props}>
                     Categorias
                   </NavigationMenuTrigger>
@@ -67,7 +98,10 @@ function Header() {
                         </AccordionContent>
                       </AccordionItem>
 
-                      <AccordionItem value="personagens" className={aItem_props}>
+                      <AccordionItem
+                        value="personagens"
+                        className={aItem_props}
+                      >
                         <AccordionTrigger>Personagens</AccordionTrigger>
                         <AccordionContent>
                           <ul className={ul_props}>
@@ -97,7 +131,7 @@ function Header() {
                         </AccordionContent>
                       </AccordionItem>
                     </Accordion>
-                    
+
                     <Accordion
                       type="single"
                       collapsible
@@ -134,9 +168,11 @@ function Header() {
                       </AccordionItem>
                     </Accordion>
                   </NavigationMenuContent>
-                </NavigationMenuItem>{/*fim do container das categorias */}
+                </NavigationMenuItem>
+                {/*fim do container das categorias */}
 
-                <NavigationMenuItem>{/*container dos universos*/}
+                <NavigationMenuItem>
+                  {/*container dos universos*/}
                   <NavigationMenuTrigger className={triger_props}>
                     Universos
                   </NavigationMenuTrigger>
@@ -152,15 +188,19 @@ function Header() {
                       ))}
                     </ul>
                   </NavigationMenuContent>
-                </NavigationMenuItem>{/*fim do container dos universos*/}
+                </NavigationMenuItem>
+                {/*fim do container dos universos*/}
 
                 <NavigationMenuItem>
                   <Link href="/noticias" legacyBehavior passHref>
-                    <NavigationMenuLink className="group inline-flex h-9 w-max items-center justify-center rounded-md text-sm font-medium focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 bg-transparent p-2 hover:text-destaque">Notícias</NavigationMenuLink>
+                    <NavigationMenuLink className="group inline-flex h-9 w-max items-center justify-center rounded-md text-sm font-medium focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 bg-transparent p-2 hover:text-destaque">
+                      Notícias
+                    </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>
-            </NavigationMenu>{/*fim do container do menu*/}
+            </NavigationMenu>
+            {/*fim do container do menu*/}
           </div>
 
           <div className="hidden lg:flex gap-3 mr-3 w-auto">
@@ -175,8 +215,18 @@ function Header() {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
-                  <a href="https://github.com/sand-br/sandbr" target="_blank" rel="noopener noreferrer" className={a_props}>
-                    <Image src={GitHub} height={icons_size} width={icons_size} alt="GitHub"/>
+                  <a
+                    href="https://github.com/sand-br/sandbr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={a_props}
+                  >
+                    <Image
+                      src={GitHub}
+                      height={icons_size}
+                      width={icons_size}
+                      alt="GitHub"
+                    />
                   </a>
                 </TooltipTrigger>
                 <TooltipContent className={tooltip_props}>
@@ -186,10 +236,20 @@ function Header() {
             </TooltipProvider>
 
             <TooltipProvider>
-              <Tooltip >
+              <Tooltip>
                 <TooltipTrigger>
-                  <a href="https://discord.gg/wsMb237Fj8" target="_blank" rel="noopener noreferrer" className={a_props}>
-                    <Image src={Discord} width={icons_size-2} height={icons_size-2} alt="Discord"/>
+                  <a
+                    href="https://discord.gg/wsMb237Fj8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={a_props}
+                  >
+                    <Image
+                      src={Discord}
+                      width={icons_size - 2}
+                      height={icons_size - 2}
+                      alt="Discord"
+                    />
                   </a>
                 </TooltipTrigger>
                 <TooltipContent className={tooltip_props}>
@@ -204,4 +264,4 @@ function Header() {
   );
 }
 
-export { Header };
+export { Cabecalho };
