@@ -1,7 +1,7 @@
 // importação de dependências:
 
 // importação de componentes meus:
-import { Indice, Lista, Item, SubItem } from "@/components/posts/indice";
+import { Indice, Lista, Item } from "@/components/posts/indice";
 import { Topico } from "@/components/posts/secoes";
 import { Ir } from "@/components/posts/ligacoes";
 import { Imagem } from "@/components/posts/imagens";
@@ -11,6 +11,7 @@ import {
   ItemDoCaminho,
   Aqui,
 } from "@/components/partes_pequenas/caminho";
+import { YouTube } from "@/components/partes_pequenas/youtube";
 // importação de componentes da shadcn:
 
 export default function Pagina() {
@@ -24,8 +25,9 @@ export default function Pagina() {
   };
 
   const hoje = (): string => {
+    const data = new Date()
     const saudacao = (): string => {
-      const agora = new Date().getHours();
+      const agora = data.getHours();
   
       if (agora >= 0 && agora < 6) {
         return "Boa madrugada";
@@ -37,7 +39,6 @@ export default function Pagina() {
         return "Boa noite";
       }
     }
-    const data = new Date()
     const meses = [
       "Janeiro",
       "Fevereiro",
@@ -61,16 +62,12 @@ export default function Pagina() {
   const ano = new Date().getFullYear().toString();
 
   return (
-    <section className="max-w-screen flex justify-center mx-5 my-5">
+    <section className="max-w-screen flex justify-center mx-5 lg:my-5">
       <Indice>
         <Lista>
-          <Item item="Sobre nós" />
-          <Item item="Contribua com a Sandbr">
-            <SubItem item="Com o que contribuir?" />
-            <SubItem item="Por que contribuir?" />
-            <SubItem item="Como começar a contribuir?" />
-          </Item>
-          <Item item="Veja também" />
+          <Item item="Calendário Holoceno" />
+          <Item item="Estrutura e conversão" />
+          <Item item="Saiba mais" />
         </Lista>
       </Indice>
 
@@ -82,7 +79,7 @@ export default function Pagina() {
               <Aqui pagina="Calendário holoceno" />
             </Caminho>
 
-            <Topico titulo="Calendário holoceno">
+            <Topico titulo="Calendário Holoceno">
               <p className="text-zinc-400">{hoje()}</p>
               <p>
                 O Calendário Holoceno, também conhecido como Era Holocena ou Era Humana (abreviado como EH), é uma adaptação do calendário <Ir destino="https://pt.wikipedia.org/wiki/Calend%C3%A1rio_gregoriano" texto="Juliano-Gregoriano"/>. Seu objetivo é estabelecer uma contagem de anos mais adequada
@@ -103,6 +100,12 @@ export default function Pagina() {
               <p>O ano {ano} EC torna-se 12.{ano.slice(1)} EH.</p>
             </Topico> 
 
+            <Topico titulo="Saiba mais">
+              <p>Para mais detalhes sobre o Calendário Holoceno, veja a página sobre ele na <Ir destino="https://pt.wikipedia.org/wiki/Calend%C3%A1rio_Holoceno" texto="Wikipédia"/>.</p>
+              <p>Ou o vídeo abaixo do canal <Ir destino="https://www.youtube.com/@kurzgesagt" texto="Kurzgesagt – In a Nutshell"/>.</p>
+              <YouTube idDoVideo="czgOWmtGVGs" titulo="Vídeo: Uma nova história para a humanidade - A Era Humana." subtitulo="Áudio em inglês. Legendas em português disponíveis."/>
+            </Topico>
+
             <Revisado
               quando="24/11/2024"
               quem="Raavë Aires"
@@ -112,7 +115,7 @@ export default function Pagina() {
 
           <section className={estilos.complementar}>
             <Imagem
-              fonte="https://uploads.coppermind.net/thumb/Sazed_by_Diego_L%C3%B3pez.jpeg/800px-Sazed_by_Diego_L%C3%B3pez.jpeg"
+              fonte="https://i.pinimg.com/736x/bc/8f/74/bc8f744b4413d52faa351cc865e845ba.jpg"
               alt="Sazed"
               autor="Diego López"
               link_do_autor="https://www.instagram.com/diegolopez_artist"
