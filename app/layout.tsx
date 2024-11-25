@@ -3,8 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 // importação de componentes:
-import { Header } from "@/components/pagina/header";
-import { Rodape } from "@/components/pagina/footer";
+import { Cabecalho } from "@/components/base/cabecalho";
+import { Rodape } from "@/components/base/rodape";
 
 // importação de componentes shadcn:
 import { Toaster } from "@/components/ui/toaster"
@@ -35,7 +35,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden `}
       >
-        <Header />
+        <Cabecalho />
         {children}
         <Rodape />
         <Toaster />

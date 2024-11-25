@@ -26,10 +26,11 @@ const estilo_de_link = "text-zinc-400 hover:text-destaque hover:underline"
 // componentes:
 const Indice: React.FC<Campos> = ({ children }) => {
   return (
-    <aside className="w-[18%] h-screen pr-3 text-sm top-[76px] sticky overflow-y-scroll scrollbar-none pb-20 border-r">
+    <aside className="hidden lg:block w-[18%] lg:h-screen pr-3 text-sm top-[76px] sticky overflow-y-scroll scrollbar-none pb-20 border-r">
       <h2 className="text-lg">Conteúdo da página</h2>
       {children}
     </aside>
+
   );
 };
 

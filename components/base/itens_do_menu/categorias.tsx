@@ -135,7 +135,7 @@ const ItemCat: React.FC<Categorias> = ({ nome, link }) => {
   return (
     <li>
       <Link href={link} legacyBehavior passHref>
-        <p className="text-xs font-medium leading-none select-none no-underline outline-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground hover:text-destaque p-2 cursor-pointer rounded-lg">
+        <p className="text-sm font-medium leading-none select-none no-underline outline-none hover:bg-accent hover:text-accent-foreground bg-accent focus:text-accent-foreground hover:text-destaque cursor-pointer rounded-lg p-2 hyphens-auto">
           {nome}
         </p>
       </Link>
@@ -143,19 +143,7 @@ const ItemCat: React.FC<Categorias> = ({ nome, link }) => {
   );
 };
 
-const ItemCatO: React.FC<Categorias> = ({ nome, link }) => {
-  return (
-    <li>
-      <Link href={link} legacyBehavior passHref>
-        <p className="text-sm font-medium leading-none select-none no-underline outline-none hover:bg-accent hover:text-accent-foreground bg-accent focus:text-accent-foreground hover:text-destaque cursor-pointer rounded-lg p-2">
-          {nome}
-        </p>
-      </Link>
-    </li>
-  );
-};
-
-export { conceitos, livros, mundos, outros, personagens, ItemCat, ItemCatO };
+export { conceitos, livros, mundos, outros, personagens, ItemCat };
 
 <NavigationMenuLink className="  space-y-1 rounded-md p-3 leading-none  transition-colors "></NavigationMenuLink>;
 
