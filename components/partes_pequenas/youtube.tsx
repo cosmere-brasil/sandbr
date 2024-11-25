@@ -1,11 +1,5 @@
-"use client";
-
 // importação de dependências:
 import React, { ReactNode } from "react";
-
-// importação de componentes:
-import { Button } from "@/components/ui/button";
-import { Youtube } from "lucide-react";
 
 interface Videos_YouTube {
   titulo?: string | ReactNode,
