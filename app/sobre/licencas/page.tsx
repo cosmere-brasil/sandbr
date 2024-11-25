@@ -25,7 +25,7 @@ export default function Pagina() {
     complementar: "hidden lg:block w-[30%] flex flex-col items-center rounded-sm"
   }
 
-  const ano = new Date().getFullYear().toString();
+  const ano = new Date().getFullYear().toString().slice(1);
   
   return (
     <section className="max-w-screen flex justify-center mx-5 my-5">
@@ -107,7 +107,7 @@ export default function Pagina() {
 
                 
                 <Copiavel titulo="Atribuição de conteúdo">
-                  <p>Informações extraídas da Sandbr. Disponível em sandbr.vercel.app. Licenciado sob CC BY-NC-SA 4.0.</p>
+                  <p>Informações extraídas da Sandbr. Disponível em &lt;sandbr.vercel.app&gt;. Licenciado sob CC BY-NC-SA 4.0 Internacional.</p>
                 </Copiavel>
               </Subtopico>
             </Topico>
@@ -132,13 +132,13 @@ export default function Pagina() {
                 </ul>
                 
                 <Copiavel titulo="Atribuição de código-fonte">
-                  <p>Copyright (C) {ano} Sandbr.</p> 
+                  <p>Copyright (C) 12.{ano} EH, Sandbr.</p> 
 
                   <p>Este programa é software livre: você pode redistribuí-lo e/ou modificá-lo sob os termos da Licença Pública Geral GNU (GNU General Public License) conforme publicada pela Free Software Foundation, na versão 3 da Licença, ou qualquer versão posterior.</p>
                     
                   <p>Este programa é distribuído na esperança de que seja útil, mas SEM NENHUMA GARANTIA; sem sequer a garantia implícita de COMERCIALIZAÇÃO ou de ADEQUAÇÃO A UM PROPÓSITO ESPECÍFICO. Consulte a Licença Pública Geral GNU para mais detalhes.</p>
 
-                  <p>Você deve ter recebido uma cópia da Licença Pública Geral GNU junto com este programa. Caso contrário, veja &lt;https://www.gnu.org/licenses/&gt;.</p>
+                  <p>Você deve ter recebido uma cópia da Licença Pública Geral GNU junto com este programa. Caso contrário, veja &lt;gnu.org/licenses/&gt;.</p>
                 </Copiavel>
               </Subtopico>
             </Topico>
